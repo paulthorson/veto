@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veto — offline</title>
+<style>
+  body{font-family:system-ui,sans-serif;background:#0d1117;color:#e6edf3;
+       display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
+  main{max-width:26rem;text-align:center;padding:2rem}
+  h1{font-size:1.4rem} p{color:#8b949e;line-height:1.5}
+  a{color:#58a6ff}
+</style>
+</head>
+<body>
+<main>
+  <h1>You're offline</h1>
+  <p>Veto keeps your last synced dashboard views available offline.
+     Actions you take now are queued and will replay when you're back online.</p>
+  <p><span data-veto-queue-count hidden></span> queued actions pending.</p>
+  <p><button id="veto-sync-now" type="button" hidden>Review &amp; sync queued actions</button></p>
+  <p><a href="/">Retry</a></p>
+</main>
+<script src="/deferred-queue.js"></script>
+<script>
+(function () {
+  function refresh() {
+    if (!window.VetoQueue) return;
+    window.VetoQueue.pendingCount().then(function (n) {
+      var btn = document.getElementById("veto-sync-now");
+      if (btn) btn.hidden = n === 0;
+    });
+  }
+  document.addEventListener("veto:queue-changed", refresh);
+  document.addEventListener("DOMContentLoaded", function () {
+    refresh();
+    var btn = document.getElementById("veto-sync-now");
+    if (btn) btn.addEventListener("click", function () {
+      // replay() always confirms ("will replay N actions") before sending.
+      window.VetoQueue.replay().then(refresh);
+    });
+  });
+})();
+</script>
+</body>
+</html>

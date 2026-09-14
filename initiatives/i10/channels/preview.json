@@ -1,0 +1,11 @@
+{
+  "channel": "preview",
+  "notes": "Preview channel tracks main; promote to stable after the automated compatibility gate passes.",
+  "released_at": null,
+  "schema_versions": {
+    "evidence-store": "evidence-v0",
+    "outcome-event": "outcome-min-v0",
+    "profile": "profile-v1"
+  },
+  "version": "0.1.0"
+}

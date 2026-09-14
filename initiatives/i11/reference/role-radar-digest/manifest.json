@@ -1,0 +1,45 @@
+{
+  "author": "Veto platform team (reference)",
+  "description": "A read-only daily digest of watched roles and application stages. Drafts a local summary and queues a notification proposal \u2014 it never sends, submits, or messages anyone.",
+  "id": "role-radar-digest",
+  "manifest_version": 1,
+  "name": "Role Radar Digest",
+  "permissions": {
+    "actions": [
+      {
+        "confirm_required": false,
+        "description": "Read-only snapshot: counts of watched roles and tracked applications.",
+        "id": "role-radar-digest-read",
+        "kind": "read"
+      },
+      {
+        "confirm_required": false,
+        "description": "Draft the digest as a local markdown artifact. Nothing leaves the device.",
+        "id": "role-radar-digest-draft",
+        "kind": "draft"
+      },
+      {
+        "confirm_required": false,
+        "description": "Queue a notification proposal in the host center. The extension cannot send.",
+        "id": "role-radar-digest-notify",
+        "kind": "notify"
+      }
+    ],
+    "data": [
+      "watches:read",
+      "applications:read",
+      "jobs:read"
+    ],
+    "network": {
+      "destinations": []
+    },
+    "pii": "redact",
+    "sandbox": {
+      "fs_roots": [],
+      "rate_limit": {
+        "calls_per_minute": 60
+      }
+    }
+  },
+  "version": "0.1.0"
+}

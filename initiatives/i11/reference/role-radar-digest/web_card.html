@@ -1,0 +1,15 @@
+<!-- Dashboard card snippet for Role Radar Digest.
+     Required states: empty / loading / blocked / error / ready.
+     Wire via initiatives/i11/integration_notes.md (webui.py, dashboard.py).
+-->
+<section class="ext-card" data-ext-id="role-radar-digest">
+  <h3>Role Radar Digest</h3>
+  <p class="ext-capabilities" data-state="ready">
+    Declared access: watches:read, applications:read, jobs:read.
+    <a href="#" data-action="show-manifest">Why does it need this?</a>
+  </p>
+  <p data-state="empty">Nothing to show yet.</p>
+  <p data-state="loading" aria-busy="true">Loading…</p>
+  <p data-state="blocked">Blocked by policy: <span data-reason></span></p>
+  <p data-state="error">Something went wrong: <span data-reason></span></p>
+</section>

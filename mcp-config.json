@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "job-apply": {
+      "args": [
+        "/path/to/job-apply-mcp/server.py"
+      ],
+      "command": "/path/to/job-apply-mcp/.venv/bin/python",
+      "env": {
+        "VETO_EXTENSIONS_DIR": "/path/to/job-apply-mcp/extensions"
+      }
+    }
+  }
+}

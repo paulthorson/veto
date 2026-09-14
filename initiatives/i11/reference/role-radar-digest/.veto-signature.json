@@ -1,0 +1,8 @@
+{
+  "alg": "ed25519-v1",
+  "package_sha256": "c4eb7491ea8865d6fff83291d6986b41abd5f448aaa51c38cd0beee3b0e1eb26",
+  "pubkey": "9d4f553f3b2454a7d227a4a1b7c7144973e1be7ee1d0bc64ea0ad030da88d4b0",
+  "publisher": "veto-reference",
+  "sig": "c1862925d7c9b99f2ad7149be6e1ee3d9dbb54e1951516275dd262c82e11e138e94a330cd9d798d7fb2d37d59c9c7a878ce21ebb5e43b6bc556bb1f3e4267c00",
+  "signed_at": 1789340553
+}

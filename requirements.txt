@@ -1,0 +1,19 @@
+# MCP SDK v2 (FastMCP was renamed to MCPServer; server.py uses the new API)
+mcp>=2.0
+httpx
+beautifulsoup4
+lxml
+# Phase 2 browser automation (optional): Playwright + Chromium.
+# Install the browser binary after pip install with:
+#   python -m playwright install chromium
+playwright
+# Optional: resume PDF output for resume_builder.py (pure Python, no
+# system dependencies). Without it, resume_builder emits resume.md +
+# resume.html. (WeasyPrint is a prettier alternative but needs system
+# libraries: pango, cairo.)
+reportlab
+# Required by the test suite: tests/test_easy_apply.py imports pytest
+# at module level, so CI must install it (it is not only a dev tool).
+pytest
+# Initiative 10 (packaging/backup/sync): encrypted backup, E2E sync envelopes.
+cryptography>=41

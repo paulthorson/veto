@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Apply: Software Engineer</title></head>
+<body>
+<h1>Apply: Software Engineer at Acme Corp</h1>
+<form action="?" method="get" id="apply-form">
+  <!-- applied flag as a hidden input: GET form submission replaces the
+       action URL's query string with the serialized fields in real
+       browsers, so ?applied=1 in the action is dropped. -->
+  <input type="hidden" name="applied" value="1">
+  <label>First name <input type="text" name="first_name" id="first_name"></label><br>
+  <label>Last name <input type="text" name="last_name" id="last_name"></label><br>
+  <label>Full name <input type="text" name="full_name" id="full_name"></label><br>
+  <label>Email <input type="email" name="email" id="email"></label><br>
+  <label>Phone <input type="tel" name="phone" id="phone"></label><br>
+  <label>Location
+    <select name="location" id="location">
+      <option value="">Choose&hellip;</option>
+      <option>New York, NY</option>
+      <option>Remote</option>
+    </select>
+  </label><br>
+  <label>LinkedIn <input type="url" name="linkedin" id="linkedin"></label><br>
+  <label>Resume <input type="file" name="resume" id="resume"></label><br>
+  <label>Cover letter <textarea name="cover_letter" id="cover_letter"></textarea></label><br>
+  <label><input type="checkbox" name="eeo_consent" id="eeo_consent">
+    I agree to the EEO statement (must be left to the human)</label><br>
+  <button type="submit">Submit application</button>
+</form>
+</body>
+</html>
