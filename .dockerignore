@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.gitignore
+screenshots/
+profiles/
+applications.json
+tests/
+.github/
+.env
+.DS_Store

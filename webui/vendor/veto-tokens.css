@@ -1,0 +1,99 @@
+/* @veto/tokens v0.1.0 — GENERATED from src/tokens.json. Do not edit by hand. */
+/* Normalization rationale: DECISIONS.md. Human reference: docs/tokens.md. */
+:root {
+  /* ---- color ---- */
+  --bg: #0d1117; /* Page background — near-black with a blue-gray cast. Replaces: guide --bg #0b0f0c; site --bg #0d0d12. */
+  --panel: #11161d; /* Default surface: topbar, sidebar, panels, cards, modals. Replaces: guide --panel #10160f; site --surface #14141c. */
+  --panel2: #161d26; /* Raised surface: status pills, th backgrounds, secondary buttons. Replaces: site --surface-2 #1b1b26. */
+  --veto-deep: #0a0e13; /* Inset interiors: inputs, code blocks, terminal bodies, heatmap zero-cell. Replaces: dashboard hardcoded #0a0e13; site --terminal-bg #08080c; guide hardcoded #000 code bg. */
+  --ink: #d7e0e6; /* Primary text. Replaces: guide --ink #d7e3d7; site --ink #f2f0e9. */
+  --muted: #7d8590; /* Secondary text: labels, metadata, table labels. Replaces: guide --dim #8ba086; site --ink-dim #a9a7ba. */
+  --ink-faint: #6f6d84; /* Tertiary text: placeholders, decorative labels. Never body copy. */
+  --green: #39d353; /* Success / primary accent. Buttons, fills, OK states. Replaces: dashboard --green #39d353 (kept); guide --green #39d353 (kept, same value); site --go #3dff73. */
+  --green-neon: #00ff9c; /* Display / focus green: hero display text, focus indication, brand glyph, heatmap max cell. */
+  --red: #ff3b5c; /* Danger: errors, destructive actions. Distinct from brand red. */
+  --veto: #ff4d5e; /* Brand red: the veto mark, primary CTAs, logo. NOT the danger color. */
+  --veto-dark: #b81f30; /* Deep red accent for brand-adjacent depth (rare). */
+  --amber: #ffb020; /* Warning. Replaces: dashboard --amber #ffb020 (kept); site --amber #ffb000; guide --amber #e3b341. */
+  --blue: #58a6ff; /* Info. Replaces: dashboard --blue #58a6ff (kept). */
+  --cyan: #41e6ff; /* Code: syntax tokens, inline code. Replaces: site --cyan #41e6ff (kept). */
+  --border: #2c2c3d; /* Default border — neutral gray-purple. The safe default for panels, cards, terminals. Replaces: dashboard --line #2ea043 (as default border); guide --line #1e2b1d. */
+  --border-accent: #2ea043; /* Accent border — phosphor green. For emphasis borders, active states, dashboard-flavored chrome. Replaces: dashboard --line #2ea043 (as accent border). */
+  --veto-heat-1: #0e3b1e; /* Heatmap level 1 of 5. */
+  --veto-heat-2: #14532d; /* Heatmap level 2 of 5. */
+  --veto-heat-3: #1f7a3d; /* Heatmap level 3 of 5. */
+  --veto-error-bg: #2a0d13; /* Error surface background. Replaces: dashboard .err hardcoded #2a0d13. */
+  --veto-error-ink: #ffb3c0; /* Error surface text. Replaces: dashboard .err hardcoded #ffb3c0. */
+  --veto-overlay: rgba(0, 0, 0, 0.75); /* Modal scrim. Replaces: dashboard login overlay rgba(6, 9, 12, 0.94). */
+  --veto-scanline: rgba(0, 0, 0, 0.18); /* Scanline overlay tint. Replaces: site scanlines rgba(0, 0, 0, 0.28). */
+  --veto-dotgrid: rgba(57, 211, 83, 0.06); /* Dot-grid texture tint. Replaces: guide rgba(57, 211, 83, 0.05); site rgba(255, 255, 255, 0.045); dashboard table zebra rgba(57, 211, 83, 0.04). */
+  /* ---- font ---- */
+  --font-mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", "DejaVu Sans Mono", monospace; /* Default UI typeface. The dashboard ships zero webfonts; this stack is the whole type system there. Replaces: dashboard --mono (same stack). */
+  --font-display: 'Press Start 2P', 'Courier New', monospace; /* Display face: headings, buttons, wordmark. Always uppercase per the aesthetic. Replaces: site --font-px (same stack). */
+  --font-terminal: 'VT323', ui-monospace, Menlo, Consolas, monospace; /* Terminal-flavor face. Never under --text-xl (18px) per site spec. Replaces: site --font-term (same stack). */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Body face for long-form marketing copy only (feature bodies, FAQ answers). Replaces: site .page body stack site.css:33-37. */
+  --text-3xs: 9px; /* Micro display labels (site mobile nav CTAs). */
+  --text-2xs: 10px; /* Micro labels, captions. */
+  --text-xs: 12px; /* Small labels, table headers, badges, status pills. Replaces: site .px-btn 11px (normalized up). */
+  --text-sm: 13px; /* Secondary UI text. */
+  --text-md: 14px; /* Buttons, inputs, nav links (dashboard). */
+  --text-base: 15px; /* Body default. */
+  --text-lg: 16px; /* Card titles, FAQ answers. */
+  --text-xl: 18px; /* Large UI text; minimum size for --font-terminal. */
+  --text-2xl: 20px; /* Terminal body, large form controls. */
+  --text-3xl: 22px; /* Section sub-heads. */
+  --text-4xl: 24px; /* Section display floor. */
+  --text-5xl: 28px; /* Large display text. */
+  --text-6xl: 34px; /* KPI values, hero-adjacent numbers. */
+  --font-size-display: clamp(26px, 4.4vw, 44px); /* Marketing hero display size (Press Start 2P). Replaces: site hero clamp site.css:389. */
+  --font-size-display-section: clamp(17px, 2.6vw, 24px); /* Marketing section display size (Press Start 2P). Replaces: site section clamp site.css:558. */
+  --font-weight-normal: 400; /* Body weight (implicit default). */
+  --font-weight-bold: 700; /* Labels, nav, pills, form labels. */
+  --font-weight-black: 800; /* Brand, buttons, headings, KPI values. */
+  --leading-tight: 1.45; /* Display floor — Press Start 2P never goes below this. */
+  --leading-base: 1.5; /* Default line height (dashboard body, terminal). */
+  --leading-relaxed: 1.6; /* Long-form body (site feature bodies). */
+  --leading-loose: 1.65; /* FAQ answers and the loosest prose. */
+  --tracking-normal: 0.04em; /* Pervasive UI letter-spacing floor. */
+  --tracking-wide: 0.12em; /* Emphasis labels (derived midpoint of the surveyed 0.04-0.22em range). */
+  --tracking-xwide: 0.22em; /* Pervasive UI letter-spacing ceiling. */
+  /* ---- space ---- */
+  --space-1: 4px; /* Hairline gaps (heatmap cell gap, tag internals). */
+  --space-2: 8px; /* Base unit — all spacing is a multiple of this. */
+  --space-3: 12px; /* Tight padding, small gaps. */
+  --space-4: 16px; /* Default gap / card padding floor. */
+  --space-5: 20px; /* Component padding, grid gaps. */
+  --space-6: 24px; /* Card/panel padding, view padding. */
+  --space-7: 28px; /* Large card padding. */
+  --space-8: 32px; /* Section-adjacent spacing. */
+  --space-11: 44px; /* Minimum touch target (WCAG mobile floor, both surfaces). */
+  --space-14: 56px; /* Large rhythm step. */
+  --space-16: 64px; /* Mobile section rhythm. Replaces: site section rhythm 64px mobile. */
+  --space-22: 88px; /* Desktop section rhythm. Replaces: site section rhythm 88px desktop. */
+  --maxw: 1120px; /* Default content max-width. */
+  --maxw-narrow: 760px; /* Narrow content max-width (prose, modals). */
+  /* ---- radius ---- */
+  --radius: 0; /* Square corners everywhere. The pixel-arcade look is defined by the absence of rounding. Replaces: guide 10px cards / 999px pill / 6px code+buttons / 3px progress bar (all retired). */
+  /* ---- shadow ---- */
+  --shadow-sm: 4px 4px 0 rgba(0, 0, 0, 0.55); /* Small hard offset — buttons, chips. */
+  --shadow-md: 6px 6px 0 rgba(0, 0, 0, 0.55); /* Default hard offset — cards, panels, terminals. Replaces: site --shadow (same value). */
+  --shadow-lg: 8px 8px 0 rgba(0, 0, 0, 0.55); /* Large hard offset — modals, sheets. Derived: dashboard's 8px offset on the site shadow base. */
+  --shadow-hard-sm: 3px 3px 0 #000; /* Small pure-black hard offset — banner buttons, status pills. Replaces: dashboard 3px offsets app.css:66,91. */
+  --shadow-hard-md: 5px 5px 0 #000; /* Default pure-black hard offset — panels, KPIs, tool cards. Dashboard buttons' 4px normalizes here. Replaces: dashboard 5px offsets app.css:145,157,176; dashboard .btn 4px app.css:193 (normalized). */
+  --shadow-hard-lg: 8px 8px 0 #000; /* Large pure-black hard offset — login card, modal. Replaces: dashboard 8px offsets app.css:279,305. */
+  --shadow-text: 2px 2px 0 #000; /* Heading text pop. Replaces: dashboard app.css:80. */
+  --shadow-text-lg: 3px 3px 0 #000; /* Large heading text pop. Replaces: dashboard app.css:130. */
+  --veto-shadow: 6px 6px 0 rgba(255, 77, 94, 0.35); /* Brand-tinted hard offset — veto-flavored components only (demo terminal, negotiation bubbles). Replaces: site demo-veto-term rgba(255,77,94,.35); site nego bubbles rgba(255,77,94,.28/.22) (normalized). */
+  /* ---- motion ---- */
+  --motion-blink: 1.2s steps(2) infinite; /* Status-dot blink. Replaces: dashboard blinkdot app.css:95. */
+  --motion-blink-fast: 1s steps(2) infinite; /* Attention blink. Replaces: dashboard .blink app.css:140. */
+  --motion-blink-caret: 1.1s steps(1) infinite; /* Terminal caret blink. Replaces: site caret site.css:493-503. */
+  --motion-bar: width 0.4s steps(12); /* Progress/bar-fill width transition — chunked, never smooth. Replaces: dashboard .bar-fill app.css:223. */
+  --motion-press: transform 0.06s steps(2), box-shadow 0.06s steps(2); /* Button/card press + hover-lift transition. Replaces: site .px-btn/.demo-opt/.feature-card site.css:75,586,1038. */
+  --motion-progress: width 0.3s steps(12); /* Progress-bar width transition. The guide's smooth .3s tween is retired to this. Replaces: guide #bar i transition guide.html:85 (smooth, normalized to steps). */
+  --motion-reduced: none; /* Reduced-motion kill switch. In @media (prefers-reduced-motion: reduce), set animation and transition to this. */
+  /* ---- border ---- */
+  --border-width-thin: 1px; /* Hairline borders (guide-style). */
+  --border-width-medium: 2px; /* Table cells, tags, pills, heat cells. */
+  --border-width-thick: 3px; /* Default chrome — panels, cards, inputs, buttons, terminals. */
+}

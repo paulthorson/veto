@@ -1,0 +1,60 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+screenshots/
+applications.json
+watches.json
+profiles/*.json
+sessions/
+preferences.json
+compliance.json
+apply_queue.json
+.DS_Store
+.env
+
+# Initiative 05 application studio: user data stores (resume text is PII —
+# never commit).
+resume_variants/
+packets/
+initiatives/i05/resume_variants/
+initiatives/i05/evidence_library/
+initiatives/i05/packets/
+playwright-report/
+test-results/
+
+site/node_modules/
+site/dist/
+
+profiles/resume.*
+grill_sessions.json
+notifications.jsonl
+notify_prefs.json
+notify_digest.json
+provider_health.json
+reply_proposals.json
+model_card.jsonl
+near_miss.json
+experiment_ledger.jsonl
+mock_sessions.json
+soft_skill_sessions.json
+ai_proficiency.json
+mentors.json
+offers.json
+offer_weights.json
+skill_gaps.json
+outcomes.json
+streaks.json
+network.json
+cover_letters/
+contributions/
+tailored/
+
+# Belt-and-suspenders: the token file lives at ~/.veto_webui_token, outside
+# the repo — this entry only guards against an accidental copy landing here.
+.veto_webui_token
+
+# Initiative 09 communication channels: local consent audit (PII-adjacent,
+# machine-local; never commit).
+channel_consent.jsonl
+channel_consent.key

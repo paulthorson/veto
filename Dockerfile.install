@@ -1,0 +1,25 @@
+# Veto installer image (Initiative 10).
+#
+# Runs the one-command installer non-interactively, then drops into a
+# shell with the `veto` launcher on PATH. The main Dockerfile (stdio MCP
+# server) is untouched; this is a separate build target for packaging.
+#
+#   docker build -f Dockerfile.install -t veto-install .
+#   docker run -it -v veto-data:/data veto-install
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+
+# Non-interactive install into /data; the venv lives in the image.
+RUN python3 initiatives/i10/installer.py install --yes --data-dir /data \
+    && ln -sf /root/.local/share/veto/venv/bin/python /usr/local/bin/veto-python
+
+VOLUME ["/data"]
+CMD ["bash", "-lc", "export PATH=$HOME/.local/bin:$PATH && exec bash"]

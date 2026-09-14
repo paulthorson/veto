@@ -1,0 +1,24 @@
+{
+  "ashby": [
+    "ashby",
+    "openai",
+    "ramp",
+    "notion"
+  ],
+  "greenhouse": [
+    "stripe",
+    "airbnb",
+    "coinbase",
+    "robinhood",
+    "datadog",
+    "figma",
+    "anthropic",
+    "duolingo"
+  ],
+  "lever": [
+    "spotify",
+    "palantir",
+    "aledade",
+    "qonto"
+  ]
+}
