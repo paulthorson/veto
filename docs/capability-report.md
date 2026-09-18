@@ -235,10 +235,14 @@ webhook. No resume text, no credentials.
 
 ---
 
-## 5. Site (marketing/docs site, `site/`) — mixed
+## 5. Site (marketing/docs site) — mixed
 
-Built with `npm run build` (vite; succeeded — no `file:../../veto-design-system`
-dependency remains in `site/package.json`). Served `site/dist` over local HTTP.
+The marketing site lives in
+[`paulthorson/veto-mcp`](https://github.com/paulthorson/veto-mcp)
+([https://www.vetomcp.com](https://www.vetomcp.com)); path citations below
+(`site/…`) refer to that repo. Built with `npm run build` (vite; succeeded —
+no `file:../../veto-design-system` dependency remains in `site/package.json`).
+Served `site/dist` over local HTTP.
 
 ### Routes — static-only (`site/src/App.tsx:1150-1230`)
 
@@ -403,9 +407,10 @@ to contact) that is not purely documentary. Role notes whether it is a
   (`providers/_common.py:34`) — an identifier string in a header, not a
   destination.
 - `site/dist/index.html` — canonical/og URLs
-  `https://job-apply-mcp.vercel.app/` (metadata only). (Google Fonts were
-  the site's only third-party requests until 2026-09-14; the two families
-  are now self-hosted woff2 — §5.)
+  `https://www.vetomcp.com/` (metadata only; marketing site in
+  `paulthorson/veto-mcp`). (Google Fonts were the site's only third-party
+  requests until 2026-09-14; the two families are now self-hosted woff2 —
+  §5.)
 - `initiatives/i11/policy_kit/*` and `reference/apply-pilot/extension.py`
   contain `https://evil.example/...`, `https://api.example.com/...` —
   adversarial test fixtures for the sandbox policy kit, never contacted.
