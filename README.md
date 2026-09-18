@@ -213,15 +213,10 @@ python3 -m venv .venv
 
 ## Web site
 
-The repo also ships a React/Vite site in `site/` (marketing pages and
-docs). Its design-system CSS is vendored in `site/src/vendor/` — no
-sibling checkout or private package needed. Build it with:
-
-```bash
-cd site
-npm install
-npm run build   # tsc -b && vite build → site/dist/
-```
+The marketing site lives in
+[`paulthorson/veto-mcp`](https://github.com/paulthorson/veto-mcp)
+([https://www.vetomcp.com](https://www.vetomcp.com)). This product repo
+does not ship the `site/` tree.
 
 ## Run
 
