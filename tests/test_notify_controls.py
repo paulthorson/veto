@@ -50,7 +50,7 @@ class _IsoMixin:
         env.start()
         self.addCleanup(env.stop)
         os.environ.pop("NTFY_TOPIC", None)
-        os.environ.pop("JOB_MCP_WEBHOOK", None)
+        os.environ.pop("VETO_WEBHOOK", None)
 
 
 class TestPrefs(_IsoMixin, unittest.TestCase):

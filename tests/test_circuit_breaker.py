@@ -266,7 +266,7 @@ class NonTTYRefusalTests(unittest.TestCase):
             "VETO_YES": "1",
             "VETO_NON_INTERACTIVE": "1",
             "VETO_CONFIRM_ALL": "1",
-            "JOB_MCP_AUTO_APPROVE": "1",
+            "VETO_AUTO_APPROVE": "1",
             "DEBIAN_FRONTEND": "noninteractive",
         }
         with mock.patch.dict(os.environ, env):
@@ -377,9 +377,12 @@ class CeilingTests(unittest.TestCase):
         board = "greenhouse.example"
         tier = compliance.board_tier(board)
         env = {
+            # Unknown/legacy names must not raise the ceiling. (Previously
+            # probed the pre-rename JOB_MCP_* names; those are unread now,
+            # so a generic unknown name preserves the probe's intent.)
             "VETO_SEARCH_BUDGET": "999999",
             "VETO_DAILY_SEARCH_LIMIT": "999999",
-            "JOB_MCP_SEARCH_BUDGET": "999999",
+            "UNKNOWN_SEARCH_BUDGET": "999999",
         }
         with mock.patch.dict(os.environ, env):
             allowed, reason = compliance.check_search_allowed(
@@ -393,9 +396,12 @@ class CeilingTests(unittest.TestCase):
         per_day = compliance._counters_for(state)
         per_day["applies"] = compliance.DEFAULT_DAILY_APPLY_CAP
         env = {
+            # Unknown/legacy names must not raise the cap. (Previously probed
+            # the pre-rename JOB_MCP_* names; those are unread now, so a
+            # generic unknown name preserves the probe's intent.)
             "VETO_DAILY_APPLY_CAP": "999",
             "VETO_APPLY_CAP": "999",
-            "JOB_MCP_APPLY_CAP": "999",
+            "UNKNOWN_APPLY_CAP": "999",
         }
         with mock.patch.dict(os.environ, env):
             allowed, reason = compliance.check_apply_allowed(state=state)

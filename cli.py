@@ -542,7 +542,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--confirm",
         action="store_true",
         help="Record the application (Phase 1 local log, or Phase 2 "
-        "fill-only browser flow when JOB_MCP_BROWSER_APPLY=1). Phase 2 "
+        "fill-only browser flow when VETO_BROWSER_APPLY=1). Phase 2 "
         "always requires the per-action circuit breaker: you type the "
         "company name exactly as shown at an interactive terminal — "
         "--confirm alone authorizes nothing. Without --confirm, only a "

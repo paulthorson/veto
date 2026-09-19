@@ -404,7 +404,7 @@ delete the evasion paragraph from the docstring.
 
 **(d) A4 — `notify.py` ntfy/webhook POSTs. DECISION: keep, document.**
 `_post_ntfy` (:321-330, `https://ntfy.sh/<topic>`) and `_post_webhook`
-(:336-353, user-configured `JOB_MCP_WEBHOOK`) send to the user themselves —
+(:336-353, user-configured `VETO_WEBHOOK`) send to the user themselves —
 opt-in self-notification via the user's own env vars to documented public
 services. Not a §1 violation. It is recorded here so the §13 capability
 report is complete.

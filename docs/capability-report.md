@@ -192,7 +192,7 @@ Static-only confirmation of the defaults (`notify.py`):
   a generated topic exists).
 - `notify.py:321` — `NTFY_TOPIC` env default `""`; guessable values are
   rejected (`notify.py:327-331`).
-- `notify.py:450` — `JOB_MCP_WEBHOOK` env default `""`; webhook fires only
+- `notify.py:450` — `VETO_WEBHOOK` env default `""`; webhook fires only
   when `"webhook"` is in the user's allowed channels.
 
 **Finding: with no configuration, the notify paths make zero network
@@ -215,7 +215,7 @@ req = urllib.request.Request(
 ```
 
 webhook (`_post_webhook`): POST of JSON `{"title", "body", "ts"}` to the URL in
-`JOB_MCP_WEBHOOK`:
+`VETO_WEBHOOK`:
 
 ```python
 payload = json.dumps(
@@ -383,7 +383,7 @@ to contact) that is not purely documentary. Role notes whether it is a
 | URL (verbatim) | Location | Role |
 |---|---|---|
 | `_NTFY_BASE = "https://ntfy.sh"` | `notify.py:56` | push sink base; only contacted after `setup_ntfy()` generates a high-entropy topic (§4) |
-| _(empty default)_ `os.environ.get("JOB_MCP_WEBHOOK", "")` | `notify.py:450` | push sink; unset by default → never contacted (§4) |
+| _(empty default)_ `os.environ.get("VETO_WEBHOOK", "")` | `notify.py:450` | push sink; unset by default → never contacted (§4) |
 
 ### Inbound pull targets (data comes in; nothing of the user's is sent beyond a GET)
 

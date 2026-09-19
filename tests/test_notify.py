@@ -51,7 +51,7 @@ class TestSend(unittest.TestCase):
         self.env_patch.start()
         self.addCleanup(self.env_patch.stop)
         os.environ.pop("NTFY_TOPIC", None)
-        os.environ.pop("JOB_MCP_WEBHOOK", None)
+        os.environ.pop("VETO_WEBHOOK", None)
 
     def _log_entries(self):
         return [
@@ -84,7 +84,7 @@ class TestSend(unittest.TestCase):
     def test_no_post_without_configuration(self):
         # Even with env vars set, default prefs mean no remote POST happens.
         os.environ["NTFY_TOPIC"] = "my-topic"
-        os.environ["JOB_MCP_WEBHOOK"] = "https://example.com/hook"
+        os.environ["VETO_WEBHOOK"] = "https://example.com/hook"
 
         def boom(req, timeout=None):
             raise AssertionError("must not POST anywhere")
@@ -158,7 +158,7 @@ class TestSend(unittest.TestCase):
         self.assertIn("guessable", result["sink_warnings"][0])
 
     def test_webhook_delivery(self):
-        os.environ["JOB_MCP_WEBHOOK"] = "https://example.com/hook"
+        os.environ["VETO_WEBHOOK"] = "https://example.com/hook"
         prefs = self._enabled_prefs("webhook")
         captured = {}
 
@@ -177,7 +177,7 @@ class TestSend(unittest.TestCase):
     def test_channel_selection(self):
         topic = notify.generate_ntfy_topic()
         os.environ["NTFY_TOPIC"] = topic
-        os.environ["JOB_MCP_WEBHOOK"] = "https://example.com/hook"
+        os.environ["VETO_WEBHOOK"] = "https://example.com/hook"
         prefs = self._enabled_prefs("ntfy", "webhook")
         with mock.patch(
             "urllib.request.urlopen", return_value=_FakeResponse(200)
@@ -189,7 +189,7 @@ class TestSend(unittest.TestCase):
 
     def test_sink_failure_never_raises(self):
         os.environ["NTFY_TOPIC"] = notify.generate_ntfy_topic()
-        os.environ["JOB_MCP_WEBHOOK"] = "https://example.com/hook"
+        os.environ["VETO_WEBHOOK"] = "https://example.com/hook"
         prefs = self._enabled_prefs("ntfy", "webhook")
 
         def boom(req, timeout=None):

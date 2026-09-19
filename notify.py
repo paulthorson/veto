@@ -17,7 +17,7 @@ never POSTs anywhere:
   no access control. A ``NTFY_TOPIC`` env var is honored only as a
   migration path, and only if it passes the entropy gate.
 * ``webhook`` — POSTs ``{"title", "body", "ts"}`` as JSON to the URL in
-  ``JOB_MCP_WEBHOOK``. Enabled only when ``"webhook"`` is in the
+  ``VETO_WEBHOOK``. Enabled only when ``"webhook"`` is in the
   user's ``channels`` preference.
 
 Delivery is stdlib-only (``urllib``), best-effort with a 5s timeout,
@@ -434,7 +434,7 @@ def _deliver(
 
     A sink fires only when its channel is in the user's ``channels``
     preference AND it is configured (ntfy: generated or entropy-gated
-    topic; webhook: ``JOB_MCP_WEBHOOK`` URL). Guessable ntfy topics are
+    topic; webhook: ``VETO_WEBHOOK`` URL). Guessable ntfy topics are
     rejected and reported in ``sink_warnings``.
     """
     delivered: list[str] = []
@@ -447,7 +447,7 @@ def _deliver(
         if topic and _post_ntfy(topic, title, body):
             delivered.append("ntfy")
     if channel in ("auto", "webhook") and "webhook" in allowed:
-        webhook = os.environ.get("JOB_MCP_WEBHOOK", "").strip()
+        webhook = os.environ.get("VETO_WEBHOOK", "").strip()
         if webhook and _post_webhook(webhook, title, body):
             delivered.append("webhook")
     result: dict[str, Any] = {"ok": True, "delivered_via": delivered}

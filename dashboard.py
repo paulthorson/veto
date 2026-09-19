@@ -670,7 +670,7 @@ def wf_apply() -> None:
         print("    The browser flow opens the posting, fills the form from "
               "your profile, and stops at the review step. The submit click "
               "is always yours.")
-        print("    Run it via apply_to_job with JOB_MCP_BROWSER_APPLY=1 and "
+        print("    Run it via apply_to_job with VETO_BROWSER_APPLY=1 and "
               "confirm=True.")
 
     print("\n  The dashboard never submits applications. To prepare a "

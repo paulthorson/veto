@@ -356,7 +356,7 @@ ACTIVE_BOARDS = {
 # ---------------------------------------------------------------------------
 #
 # Implemented in browser_apply.py (Playwright, sync API). Enable with the
-# environment variable JOB_MCP_BROWSER_APPLY=1. When enabled and
+# environment variable VETO_BROWSER_APPLY=1. When enabled and
 # apply_to_job(..., confirm=True) is called, the server opens the job's
 # apply_url in a browser, fills the form from `profile`, uploads
 # the resume, screenshots the completed form, and stops - fill-only.
@@ -370,7 +370,7 @@ ACTIVE_BOARDS = {
 
 def _browser_apply_enabled() -> bool:
     """True when the operator opted into Phase 2 browser automation."""
-    return os.environ.get("JOB_MCP_BROWSER_APPLY") == "1"
+    return os.environ.get("VETO_BROWSER_APPLY") == "1"
 
 
 # ---------------------------------------------------------------------------
@@ -382,9 +382,9 @@ mcp = MCPServer(
     instructions=(
         "Search jobs across major boards and prepare assisted job "
         "applications. apply_to_job NEVER submits. "
-        "Without the JOB_MCP_BROWSER_APPLY env var, confirm=True only "
+        "Without the VETO_BROWSER_APPLY env var, confirm=True only "
         "records the application locally (Phase 1) and the user completes "
-        "the submission in their browser; with JOB_MCP_BROWSER_APPLY=1, "
+        "the submission in their browser; with VETO_BROWSER_APPLY=1, "
         "confirm=True auto-fills the form in a browser via a profile dict "
         "(Phase 2) and waits for the user's own submit click."
     ),
@@ -662,7 +662,7 @@ def apply_to_job(
     browser.
 
     Phase 2 (opt-in browser automation): set the environment variable
-    JOB_MCP_BROWSER_APPLY=1 and pass a `profile` dict. Then confirm=True
+    VETO_BROWSER_APPLY=1 and pass a `profile` dict. Then confirm=True
     opens the apply_url in a browser, fills the form from the profile,
     uploads the resume, screenshots the completed form, and stops —
     fill-only. With headless=False the call waits until the user closes
@@ -770,7 +770,7 @@ def apply_to_job(
             )
         elif profile:
             message += (
-                " Tip: pass profile + set JOB_MCP_BROWSER_APPLY=1 to enable "
+                " Tip: pass profile + set VETO_BROWSER_APPLY=1 to enable "
                 "Phase 2 browser auto-fill on confirm."
             )
         return {
@@ -918,7 +918,7 @@ def apply_to_job(
         "note": (
             "Phase 1: recorded locally. Complete the actual submission at "
             "apply_url in your browser. To enable Phase 2 browser "
-            "auto-fill, set JOB_MCP_BROWSER_APPLY=1 and pass a profile "
+            "auto-fill, set VETO_BROWSER_APPLY=1 and pass a profile "
             "dict (see browser_apply.py for the schema)."
         ),
     }
