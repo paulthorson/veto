@@ -1,11 +1,10 @@
 # Veto capability report — runtime observation
 
-Directive §8 (execute.md). Commit observed: `22b2a4d`
-("feedback: local capture only, no automated send (directive §5, Rule 2)").
-Date of observation: 2026-09-14.
+Directive §8 (execute.md). Commit observed:
+`2dd4a058e0229fc3775ceabc45873afec405278a`
+Date of observation: 2026-09-14. Pin updated: 2026-09-19 — the previously recorded pin is not a commit object in this repository, so the baseline was carried forward to `2dd4a058e0229fc3775ceabc45873afec405278a`, verified with `git cat-file -t`; the 2026-09-19 technical-writer fix series is applied on top of that baseline.
 
-Note: runtime observation was performed at `22b2a4d`; commits since are
-documentation-only and do not change runtime behavior.
+Note: the report content below is unchanged from the 2026-09-14 observation; only the pin was corrected to a commit that exists. No claim is made here about whether commits between the original observation and this pin update were documentation-only.
 
 Method: a clean worktree of HEAD was created at `~/workspace/capability-tree`
 and all runtime observation was done there, under a socket-logging harness
