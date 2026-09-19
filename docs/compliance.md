@@ -12,7 +12,12 @@ page explains what it does and why.
 | Tier | Boards | What it means |
 |---|---|---|
 | **official** | Greenhouse, Lever, Ashby, Adzuna | Public or official APIs. Preferred for everything. |
-| **scraping** | LinkedIn, Indeed, Glassdoor, ZipRecruiter | HTML or guest endpoints. Works until it doesn't. May violate the site's ToS; the site can rate-limit (429), block (403), or CAPTCHA at any time. |
+| **scraping** | Glassdoor (locked stub — performs no scraping) | Tier reserved for HTML or guest-endpoint scraping. Glassdoor's provider is a locked stub that raises `NotImplementedError` — it performs no scraping and makes no network requests to Glassdoor. |
+
+Note: the LinkedIn, Indeed, and ZipRecruiter providers were removed during
+the legal exposure reduction program. They are not present in
+`compliance.py`'s `RISK_TIER`, there are no provider modules for them, and
+Veto performs no searching or scraping on those sites.
 
 Every search result is tagged with its board's tier, and every apply
 preview shows the risk disclosure for its board.
