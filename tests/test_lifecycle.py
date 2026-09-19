@@ -5,7 +5,7 @@ Stdlib unittest only. All file I/O goes to temporary directories — the
 real ``applications.json`` / ``watches.json`` / ``profiles/`` are never
 touched.
 
-Run:  cd ~/workspace/job-apply-mcp && .venv/bin/python -m unittest discover -s tests -v
+Run:  cd ~/workspace/veto && .venv/bin/python -m unittest discover -s tests -v
 """
 
 import csv

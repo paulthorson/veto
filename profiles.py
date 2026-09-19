@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Multi-profile support for job-apply-mcp.
+"""Multi-profile support for veto-mcp.
 
 The onboarding wizard writes ``profiles/profile.json`` (legacy single
 profile). This module adds *named* profiles — e.g. one per target role —
@@ -26,7 +26,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.profiles")
+log = logging.getLogger("veto-mcp.profiles")
 
 BASE_DIR = Path(__file__).resolve().parent
 PROFILES_DIR = BASE_DIR / "profiles"

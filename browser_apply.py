@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Phase 2: browser-automation apply hook (Playwright, sync API).
 
-This module powers the optional browser auto-fill mode of the job-apply
+This module powers the optional browser auto-fill mode of the Veto
 MCP server. It opens an application's ``apply_url`` in headless Chromium,
 extracts the visible form fields, fills them from a user ``profile`` dict,
 attaches the resume file, and screenshots the result.
@@ -82,7 +82,7 @@ from typing import Any
 from providers import session_rescue
 from providers._common import VETO_USER_AGENT
 
-log = logging.getLogger("job-apply-mcp.browser")
+log = logging.getLogger("veto-mcp.browser")
 
 BASE_DIR = Path(__file__).resolve().parent
 SCREENSHOTS_DIR = BASE_DIR / "screenshots"  # gitignored: filled-form PII

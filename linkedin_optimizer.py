@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""LinkedIn profile optimizer for the job-apply MCP server.
+"""LinkedIn profile optimizer for the Veto MCP server.
 
 Deterministic, stdlib-only analysis and rewrite suggestions:
 
@@ -32,7 +32,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.linkedin_optimizer")
+log = logging.getLogger("veto-mcp.linkedin_optimizer")
 
 BASE_DIR = Path(__file__).resolve().parent
 PROFILE_PATH = BASE_DIR / "profiles" / "profile.json"

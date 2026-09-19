@@ -20,7 +20,7 @@ from typing import Any
 import httpx
 from bs4 import BeautifulSoup
 
-log = logging.getLogger("job-apply-mcp.providers")
+log = logging.getLogger("veto-mcp.providers")
 
 #: Project version, matching the ``vX.Y.Z`` git tags and the ``__version__``
 #: declarations in the initiatives packages. The repo has no pyproject.toml

@@ -5,7 +5,7 @@ Stdlib unittest only. All file I/O goes to temporary directories — the
 real ``apply_queue.json`` / ``compliance.json`` / ``applications.json``
 are never touched. No sleeping (sleep_fn/pace_fn injected), no network.
 
-Run:  cd ~/workspace/job-apply-mcp && python3 -m unittest discover -s tests -v
+Run:  cd ~/workspace/veto && python3 -m unittest discover -s tests -v
 """
 
 import json

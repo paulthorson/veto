@@ -63,7 +63,7 @@ from typing import Any
 from circuit_breaker import require_action_confirmation
 from providers._contract import ConnectorManifest
 
-log = logging.getLogger("job-apply-mcp.i09.calendar")
+log = logging.getLogger("veto-mcp.i09.calendar")
 
 CALENDAR_MANIFEST = ConnectorManifest(
     name="calendar_handoff",

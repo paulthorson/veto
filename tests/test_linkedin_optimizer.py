@@ -6,7 +6,7 @@ profiles are plain dicts, so no store redirection is needed. The key
 honesty tests assert that rewrites never introduce facts (numbers,
 employers, titles) absent from the profile.
 
-Run:  cd ~/workspace/job-apply-mcp && .venv/bin/python -m unittest discover -s tests -v
+Run:  cd ~/workspace/veto && .venv/bin/python -m unittest discover -s tests -v
 """
 
 import re

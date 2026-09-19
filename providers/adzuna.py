@@ -29,7 +29,7 @@ from providers._common import (
     prettify_token,
 )
 
-log = logging.getLogger("job-apply-mcp.providers.adzuna")
+log = logging.getLogger("veto-mcp.providers.adzuna")
 
 APP_ID = os.environ.get("ADZUNA_APP_ID")
 APP_KEY = os.environ.get("ADZUNA_APP_KEY")

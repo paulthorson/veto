@@ -1,4 +1,4 @@
-"""Interactive terminal dashboard for the job-apply repo.
+"""Interactive terminal dashboard for the Veto repo.
 
 Launches a grouped menu (FIND / TAILOR / APPLY / TRAIN / WIN / GOVERN /
 UTILITIES) that wires the feature modules through short guided
@@ -1326,7 +1326,7 @@ def run_dashboard() -> int:
     """Main menu loop; Ctrl-C / EOF exits cleanly."""
     while True:
         print()
-        print(vt.banner("JOB-APPLY DASHBOARD"))
+        print(vt.banner("VETO DASHBOARD"))
         print()
         print_kpis()
         print_menu()

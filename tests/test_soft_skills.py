@@ -4,7 +4,7 @@
 All file I/O goes to temporary directories — the real
 soft_skill_sessions.json / soft_skills.json are never touched.
 
-Run: cd ~/workspace/job-apply-mcp && .venv/bin/python -m pytest tests/test_soft_skills.py -q
+Run: cd ~/workspace/veto && .venv/bin/python -m pytest tests/test_soft_skills.py -q
 """
 
 from __future__ import annotations

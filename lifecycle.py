@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Application lifecycle management for job-apply-mcp.
+"""Application lifecycle management for veto-mcp.
 
 Additive extension of the ``applications.json`` store:
 
@@ -28,7 +28,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.lifecycle")
+log = logging.getLogger("veto-mcp.lifecycle")
 
 #: Allowed application stages, in rough pipeline order.
 STAGES = ("applied", "interviewing", "offer", "rejected", "withdrawn", "ghosted")

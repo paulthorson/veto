@@ -39,7 +39,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.rejection_autopsy")
+log = logging.getLogger("veto-mcp.rejection_autopsy")
 
 BASE_DIR = Path(__file__).resolve().parent
 OUTCOMES_FILE = BASE_DIR / "outcomes.json"

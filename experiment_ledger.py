@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Experiment ledger for job-apply-mcp (Initiative 01).
+"""Experiment ledger for Veto (Initiative 01).
 
 Records the ranking / tailoring version behind every application so
 later analysis can attribute outcomes to the exact configuration that
@@ -26,7 +26,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.experiment_ledger")
+log = logging.getLogger("veto-mcp.experiment_ledger")
 
 BASE_DIR = Path(__file__).resolve().parent
 LEDGER_FILE = BASE_DIR / "experiment_ledger.jsonl"

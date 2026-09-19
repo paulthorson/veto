@@ -50,7 +50,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Protocol
 
-log = logging.getLogger("job-apply-mcp.providers.health")
+log = logging.getLogger("veto-mcp.providers.health")
 
 #: Capability labels per provider (the scorecard's fourth column).
 #: Only providers with a real registered manifest/entry are listed:

@@ -15,7 +15,7 @@ Stdlib unittest only. Suites whose target interface is not importable yet
 degrade to an explicit *skip* (rather than failing on missing worker output);
 once the worker files land, the skips lift automatically.
 
-Run:  cd ~/workspace/job-apply-mcp && .venv/bin/python -m unittest tests.test_dashboard -v
+Run:  cd ~/workspace/veto && .venv/bin/python -m unittest tests.test_dashboard -v
 """
 
 from __future__ import annotations

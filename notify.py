@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Outbound notifications for the job-apply MCP server.
+"""Outbound notifications for the Veto MCP server.
 
 ``send(title, body, channel="auto")`` always appends the notification
 to a local JSONL log (``notifications.jsonl`` next to this project, one

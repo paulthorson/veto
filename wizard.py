@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Onboarding wizard for the job-apply MCP server.
+"""Onboarding wizard for the Veto MCP server.
 
 Run interactively::
 
@@ -322,7 +322,7 @@ def blank_profile() -> dict:
 def collect_basics() -> dict:
     """Interactive Q&A for the core profile fields."""
     profile = blank_profile()
-    print("\n=== Job-Apply Onboarding Wizard ===\n")
+    print("\n=== Veto Onboarding Wizard ===\n")
     print("Press Enter to accept the [default] shown, or type your own.\n")
 
     print("--- Contact & identity ---")
@@ -852,7 +852,7 @@ def print_summary(profile: dict) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Job-Apply onboarding wizard: builds your profile."
+        description="Veto onboarding wizard: builds your profile."
     )
     parser.add_argument(
         "--grill", action="store_true",

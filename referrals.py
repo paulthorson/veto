@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Referral radar for job-apply-mcp.
+"""Referral radar for veto-mcp.
 
 Finds the user's LinkedIn connections who work at target companies and
 ranks them as referral prospects. Target companies come from (in order)
@@ -33,7 +33,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.referrals")
+log = logging.getLogger("veto-mcp.referrals")
 
 BASE_DIR = Path(__file__).resolve().parent
 CONNECTIONS_CSV = BASE_DIR / "profiles" / "connections.csv"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Outcome event capture for job-apply-mcp — schema ``outcome-min-v0``.
+"""Outcome event capture for Veto — schema ``outcome-min-v0``.
 
 This module is the Week-0 minimum event (roadmap Decision 02): an
 append-only, auditable record of what happened after an application.
@@ -56,7 +56,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
-log = logging.getLogger("job-apply-mcp.outcomes")
+log = logging.getLogger("veto-mcp.outcomes")
 
 BASE_DIR = Path(__file__).resolve().parent
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Response analytics for the job-apply MCP server (stdlib only).
+"""Response analytics for the Veto MCP server (stdlib only).
 
 Reads ``applications.json`` **read-only** via :mod:`lifecycle` (which
 backfills legacy entries in memory) and computes pipeline statistics:

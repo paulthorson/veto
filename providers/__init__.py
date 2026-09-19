@@ -1,4 +1,4 @@
-"""Job-board provider modules for the job-apply MCP server.
+"""Job-board provider modules for the Veto MCP server.
 
 Each module exposes a provider class with:
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ToS-risk mitigation for the job-apply MCP server.
+"""ToS-risk mitigation for the Veto MCP server.
 
 Boards are classified into risk tiers:
 

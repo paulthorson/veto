@@ -46,7 +46,7 @@ from dataclasses import asdict, dataclass, field
 from enum import Enum
 from typing import Any, Protocol
 
-log = logging.getLogger("job-apply-mcp.providers.contract")
+log = logging.getLogger("veto-mcp.providers.contract")
 
 # ---------------------------------------------------------------------------
 # Terms / robots classification

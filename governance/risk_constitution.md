@@ -1,4 +1,4 @@
-# Risk constitution — job-apply-mcp
+# Risk constitution — Veto
 
 This is the policy that `governance/risk_policy.py` enforces, adjudicated
 through the user's agentic-governance framework (veto screen + verdict

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Job watches for job-apply-mcp.
+"""Job watches for veto-mcp.
 
 A *watch* is a saved search (query + location + board + filters). Each
 ``check_watch`` run diffs fresh search results against the ids seen last
@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
-log = logging.getLogger("job-apply-mcp.watch")
+log = logging.getLogger("veto-mcp.watch")
 
 SearchFn = Callable[..., list[dict[str, Any]]]
 
@@ -168,7 +168,7 @@ def check_all(
 if __name__ == "__main__":
     # Cron-friendly entry point: `python watch.py` checks all saved
     # watches, prints JSON, and exits 0. Schedule it, e.g.:
-    #   0 9 * * * cd ~/workspace/job-apply-mcp && .venv/bin/python watch.py
+    #   0 9 * * * cd ~/workspace/veto && .venv/bin/python watch.py
     base = Path(__file__).resolve().parent
     store = base / "watches.json"
     all_watches = load_watches(store)

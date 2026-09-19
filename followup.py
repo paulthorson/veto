@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Smart follow-ups for job-apply-mcp.
+"""Smart follow-ups for veto-mcp.
 
 Turns the stale-application signal (``lifecycle.due_followups``) into
 actionable drafts:
@@ -59,7 +59,7 @@ import lifecycle
 
 import email_sync
 
-log = logging.getLogger("job-apply-mcp.followup")
+log = logging.getLogger("veto-mcp.followup")
 
 BASE_DIR = Path(__file__).resolve().parent
 APPLICATIONS_FILE = BASE_DIR / "applications.json"

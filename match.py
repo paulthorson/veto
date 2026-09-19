@@ -33,7 +33,7 @@ from typing import Any
 from filters import _annual_from_text, detect_seniority
 from tailor import extract_job_keywords
 
-log = logging.getLogger("job-apply-mcp.match")
+log = logging.getLogger("veto-mcp.match")
 
 #: Below this score a job is vetoed ("the job bot that says no").
 #:

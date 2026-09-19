@@ -49,7 +49,7 @@ from initiatives.i06 import longitudinal as _i06_longitudinal
 from initiatives.i06 import rubric as _i06_rubric
 from initiatives.i06 import scenarios as _i06_scenarios
 
-log = logging.getLogger("job-apply-mcp.soft_skills")
+log = logging.getLogger("veto-mcp.soft_skills")
 
 BASE_DIR = Path(__file__).resolve().parent
 SESSIONS_PATH = BASE_DIR / "soft_skill_sessions.json"

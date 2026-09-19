@@ -12,7 +12,7 @@ entry that references the entry it corrects.
 
 ## 1. Request
 
-> You are a fixer for Veto Initiative 12, workstreams WS1 (tools+contracts) and WS3 (changelog), in repo ~/workspace/job-apply-mcp. Both blind reviews returned ALLOW, but each lists ship-blocking must-fix findings. Your job: apply all findings below, add tests proving the fixes, run the i12 test subset, and report changed files. Do NOT commit anything (a later sweep commits).
+> You are a fixer for Veto Initiative 12, workstreams WS1 (tools+contracts) and WS3 (changelog), in repo ~/workspace/veto-mcp. Both blind reviews returned ALLOW, but each lists ship-blocking must-fix findings. Your job: apply all findings below, add tests proving the fixes, run the i12 test subset, and report changed files. Do NOT commit anything (a later sweep commits).
 
 Solution shape assumed by the request: fix the listed findings in place; implement (don't remove) the advertised `--since-git` CLI.
 
