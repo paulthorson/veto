@@ -290,7 +290,7 @@ summary on screen and types a value that varies per application.
    minted only by the human interaction in step 3.
 
 ### Under an agent driving the CLI
-An agent (Muse, a script, a cron job) driving the CLI runs with stdin that is
+An agent (a script, a cron job) driving the CLI runs with stdin that is
 not a TTY — a pipe, a pty-less subprocess, a redirect. Step 2 above fires: the
 action refuses and exits nonzero. There is no way for the agent to satisfy the
 prompt: no env var, no flag, no config file, no remembered approval, no
