@@ -66,7 +66,7 @@ class RiskPolicyTest(unittest.TestCase):
         self.assertEqual(out["tier"], "official")
         self.assertEqual(out["governance"], "adjudicated")
         self.assertTrue(
-            any(r["ticket"].startswith("job-apply:risk:search")
+            any(r["ticket"].startswith("veto:risk:search")
                 for r in self.fake.recorded)
         )
 

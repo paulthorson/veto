@@ -13,7 +13,7 @@ files (``watches.json``, ``grill_sessions.json``), never hit the network,
 and never send anything. The email scan handler must always call the
 scan with ``apply_updates=False`` (proposals only).
 
-Run:  cd ~/workspace/job-apply-mcp && .venv/bin/python -m pytest tests/test_webui_catalog.py
+Run:  cd ~/workspace/veto && .venv/bin/python -m pytest tests/test_webui_catalog.py
 """
 
 from __future__ import annotations

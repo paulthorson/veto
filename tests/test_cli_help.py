@@ -28,7 +28,7 @@ import argparse  # noqa: E402
 import cli  # noqa: E402
 import server  # noqa: E402
 
-_LOG = logging.getLogger("job-apply-mcp")
+_LOG = logging.getLogger("veto-mcp")
 _COMMAND_LINE_RE = re.compile(r"^    ([a-z][a-z0-9-]*)(\s|$)")
 _real_boards = server.list_boards
 

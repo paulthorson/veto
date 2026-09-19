@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Job Apply MCP server.
+"""Veto MCP server.
 
 Exposes job-board search and assisted-application tools over the Model
 Context Protocol (MCP) so an AI agent can:
@@ -118,9 +118,9 @@ _sanitize_proxy_env()
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s %(levelname)s [job-apply-mcp] %(message)s",
+    format="%(asctime)s %(levelname)s [veto-mcp] %(message)s",
 )
-log = logging.getLogger("job-apply-mcp")
+log = logging.getLogger("veto-mcp")
 
 # ---------------------------------------------------------------------------
 # Enhancement plugins (grill, email sync, briefs, ATS apply,
@@ -378,7 +378,7 @@ def _browser_apply_enabled() -> bool:
 # ---------------------------------------------------------------------------
 
 mcp = MCPServer(
-    "job-apply",
+    "veto",
     instructions=(
         "Search jobs across major boards and prepare assisted job "
         "applications. apply_to_job NEVER submits. "
@@ -636,7 +636,7 @@ def _governance_record_outcome(
                 "company": preview.get("company"),
             },
             passed,
-            f"job-apply: application {note} for "
+            f"veto: application {note} for "
             f"{preview.get('title')} at {preview.get('company')}",
         )
     except Exception as exc:
@@ -1274,7 +1274,7 @@ def get_profile() -> dict[str, Any]:
             "message": (
                 "No saved profile found. Run the onboarding wizard to "
                 "create one: `python3 wizard.py` in "
-                "~/workspace/job-apply-mcp/ (it asks basic questions and "
+                "~/workspace/veto/ (it asks basic questions and "
                 "can ingest a LinkedIn data-export ZIP to pre-fill "
                 "experience/education/skills)."
             ),

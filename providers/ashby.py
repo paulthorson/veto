@@ -38,7 +38,7 @@ from providers._common import (
     words_match,
 )
 
-log = logging.getLogger("job-apply-mcp.providers.ashby")
+log = logging.getLogger("veto-mcp.providers.ashby")
 
 _BOARDS_FILE = Path(__file__).resolve().parent / "boards.json"
 

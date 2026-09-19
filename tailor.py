@@ -20,7 +20,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.tailor")
+log = logging.getLogger("veto-mcp.tailor")
 
 # Built-in vocabulary for keyword extraction. The profile's own skills are
 # always added to this set, so niche skills still get matched.

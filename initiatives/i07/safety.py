@@ -50,7 +50,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.i07.safety")
+log = logging.getLogger("veto-mcp.i07.safety")
 
 BASE_DIR = Path(__file__).resolve().parent
 

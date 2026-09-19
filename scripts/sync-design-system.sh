@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# sync-design-system.sh — vendor design-system assets into job-apply-mcp.
+# sync-design-system.sh — vendor design-system assets into veto-mcp.
 #
 # Web dashboard (Spec A):
 #   webui/vendor/veto-tokens.css  <- packages/tokens/dist/tokens.css

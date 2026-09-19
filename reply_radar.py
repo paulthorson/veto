@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recruiter reply radar for job-apply-mcp (Initiative 03).
+"""Recruiter reply radar for Veto (Initiative 03).
 
 Scans recruiter email (via :mod:`email_sync`), classifies the likely reply
 type, and **proposes** application stage updates. Proposals are never
@@ -36,7 +36,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.reply_radar")
+log = logging.getLogger("veto-mcp.reply_radar")
 
 BASE_DIR = Path(__file__).resolve().parent
 PROPOSALS_FILE = BASE_DIR / "reply_proposals.json"

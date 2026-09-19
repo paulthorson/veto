@@ -32,7 +32,7 @@ from typing import Any
 
 import tailor
 
-log = logging.getLogger("job-apply-mcp.cover_letters")
+log = logging.getLogger("veto-mcp.cover_letters")
 
 BASE_DIR = Path(__file__).resolve().parent
 PROFILE_PATH = BASE_DIR / "profiles" / "profile.json"

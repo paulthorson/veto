@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Provider health board for job-apply-mcp (Initiative 03).
+"""Provider health board for Veto (Initiative 03).
 
 One local JSON store (``provider_health.json``) tracks, per board/provider:
 
@@ -31,7 +31,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.provider_health")
+log = logging.getLogger("veto-mcp.provider_health")
 
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_STORE = BASE_DIR / "provider_health.json"

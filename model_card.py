@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Versioned model card for job-apply-mcp (Initiative 02).
+"""Versioned model card for Veto (Initiative 02).
 
 Every weight change — reason, date, weights, rollback/pin/reset — is an
 append-only entry in ``model_card.jsonl``. The live card starts at v0
@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.model_card")
+log = logging.getLogger("veto-mcp.model_card")
 
 BASE_DIR = Path(__file__).resolve().parent
 MODEL_CARD_FILE = BASE_DIR / "model_card.jsonl"

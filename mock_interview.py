@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mock interview practice for the job-apply MCP server.
+"""Mock interview practice for the Veto MCP server.
 
 A five-question practice loop for an upcoming interview:
 
@@ -75,7 +75,7 @@ from initiatives.i06 import longitudinal as _i06_longitudinal
 from initiatives.i06 import modes as _i06_modes
 from initiatives.i06 import rubric as _i06_rubric
 
-log = logging.getLogger("job-apply-mcp.mock_interview")
+log = logging.getLogger("veto-mcp.mock_interview")
 
 BASE_DIR = Path(__file__).resolve().parent
 SESSIONS_FILE = BASE_DIR / "mock_sessions.json"

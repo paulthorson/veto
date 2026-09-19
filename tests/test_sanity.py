@@ -75,7 +75,7 @@ class TestMCPStdio(unittest.TestCase):
             resp = _rpc_read(proc)
             self.assertIn("result", resp)
             self.assertIn("serverInfo", resp["result"])
-            self.assertEqual(resp["result"]["serverInfo"]["name"], "job-apply")
+            self.assertEqual(resp["result"]["serverInfo"]["name"], "veto")
 
             proc.stdin.write(
                 b'{"jsonrpc":"2.0","method":"notifications/initialized"}\n')

@@ -5,7 +5,7 @@ Stdlib unittest only. All file I/O goes to temporary directories — the
 real ``applications.json`` is never touched. No network: the Gmail send
 path is mocked at ``followup.email_sync.send_followup``.
 
-Run:  cd ~/workspace/job-apply-mcp && .venv/bin/python -m unittest discover -s tests -v
+Run:  cd ~/workspace/veto && .venv/bin/python -m unittest discover -s tests -v
 """
 
 import json

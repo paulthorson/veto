@@ -14,7 +14,7 @@ asserted directly: the apply wizard may only ever call the ATS path with
 ``confirm=False, dry_run=True``, and the email wizard must never call
 ``send_followup``.
 
-Run:  cd ~/workspace/job-apply-mcp && .venv/bin/python -m pytest tests/test_dashboard_wizards.py
+Run:  cd ~/workspace/veto && .venv/bin/python -m pytest tests/test_dashboard_wizards.py
 """
 
 from __future__ import annotations

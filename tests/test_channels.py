@@ -125,14 +125,14 @@ class ChannelRegistryTests(unittest.TestCase):
         with registry.CONSENT_LOG.open("a", encoding="utf-8") as fh:
             fh.write("this is not json\n")
             fh.write('{"channel": "gmail", "action": "enable"}\n')  # no mac
-        with self.assertLogs("job-apply-mcp.i09.channels", level="ERROR") as cm:
+        with self.assertLogs("veto-mcp.i09.channels", level="ERROR") as cm:
             history = registry.consent_history("gmail")
         loud = "\n".join(cm.output)
         self.assertIn("malformed JSON", loud)
         self.assertIn("rejected", loud)
         # Only the one genuinely signed entry survives; store untrusted.
         self.assertEqual(len(history), 1)
-        with self.assertLogs("job-apply-mcp.i09.channels", level="ERROR"):
+        with self.assertLogs("veto-mcp.i09.channels", level="ERROR"):
             self.assertFalse(registry.is_enabled("gmail"))
 
     def test_tampered_entry_is_rejected_loudly(self):
@@ -141,7 +141,7 @@ class ChannelRegistryTests(unittest.TestCase):
         tampered = raw.replace('"channel": "gmail"', '"channel": "discord"')
         self.assertNotEqual(raw, tampered)
         registry.CONSENT_LOG.write_text(tampered, encoding="utf-8")
-        with self.assertLogs("job-apply-mcp.i09.channels", level="ERROR") as cm:
+        with self.assertLogs("veto-mcp.i09.channels", level="ERROR") as cm:
             history = registry.consent_history()
         self.assertIn("signature mismatch", "\n".join(cm.output))
         self.assertEqual(history, [])
@@ -539,7 +539,7 @@ class InteractiveBoundaryRegressionTests(unittest.TestCase):
         # verification: the store must read as untrusted and the channel
         # as disabled, with loud logs pointing at the recovery runbook.
         with self.assertLogs(
-            "job-apply-mcp.i09.channels", level="ERROR"
+            "veto-mcp.i09.channels", level="ERROR"
         ) as cm:
             enabled = registry.is_enabled("gmail")
         self.assertFalse(enabled)  # fail closed

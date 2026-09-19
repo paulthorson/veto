@@ -31,7 +31,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.i05.feedback")
+log = logging.getLogger("veto-mcp.i05.feedback")
 
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_STATE_DIR = BASE_DIR / "feedback_state"

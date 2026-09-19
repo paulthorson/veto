@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Resume builder for the job-apply MCP server.
+"""Resume builder for the Veto MCP server.
 
 Usage::
 

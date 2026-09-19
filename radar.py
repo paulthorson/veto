@@ -16,7 +16,7 @@ import logging
 import math
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.radar")
+log = logging.getLogger("veto-mcp.radar")
 
 #: Axis order (clockwise from the top) and their max raw points.
 AXES: list[str] = ["skills", "seniority", "salary", "location", "recency"]

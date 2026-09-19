@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Per-application grilling for the job-apply MCP server.
+"""Per-application grilling for the Veto MCP server.
 
 The wizard's ``--grill`` mode interrogates the user once at profile
 setup. This module grills per application: before an application
@@ -58,7 +58,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.grill")
+log = logging.getLogger("veto-mcp.grill")
 
 BASE_DIR = Path(__file__).resolve().parent
 SESSIONS_FILE = BASE_DIR / "grill_sessions.json"

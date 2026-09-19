@@ -5,7 +5,7 @@ Stdlib unittest only. Module-level paths are monkeypatched to temp
 dirs; subprocess and the heavy server import are stubbed. The real
 ``profiles/``, ``compliance.json`` etc. are never touched.
 
-Run:  cd ~/workspace/job-apply-mcp && python3 -m unittest discover -s tests -v
+Run:  cd ~/workspace/veto && python3 -m unittest discover -s tests -v
 """
 
 import json

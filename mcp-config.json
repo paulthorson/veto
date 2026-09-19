@@ -1,12 +1,12 @@
 {
   "mcpServers": {
-    "job-apply": {
+    "veto": {
       "args": [
-        "/path/to/job-apply-mcp/server.py"
+        "/path/to/veto/server.py"
       ],
-      "command": "/path/to/job-apply-mcp/.venv/bin/python",
+      "command": "/path/to/veto/.venv/bin/python",
       "env": {
-        "VETO_EXTENSIONS_DIR": "/path/to/job-apply-mcp/extensions"
+        "VETO_EXTENSIONS_DIR": "/path/to/veto/extensions"
       }
     }
   }

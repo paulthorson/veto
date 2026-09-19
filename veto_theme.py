@@ -1,4 +1,4 @@
-"""veto_theme — canonical terminal theme for Veto (job-apply-mcp).
+"""veto_theme — canonical terminal theme for Veto.
 
 Loads ``theme.json`` from the package directory and exposes the primitives
 the terminal surfaces (``dashboard.py``, ``cli.py``, ``wizard.py``) use to

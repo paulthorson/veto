@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Outcome nudges for job-apply-mcp (Initiative 01).
+"""Outcome nudges for Veto (Initiative 01).
 
 Delivers the capture contract's missing-outcome prompts through the
 notification system:
@@ -22,7 +22,7 @@ import logging
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.outcome_nudges")
+log = logging.getLogger("veto-mcp.outcome_nudges")
 
 BASE_DIR = Path(__file__).resolve().parent
 APPLICATIONS_FILE = BASE_DIR / "applications.json"

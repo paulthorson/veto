@@ -66,7 +66,7 @@ from typing import Any
 
 from .contracts import CONTRACT_VERSION, normalize_evidence
 
-log = logging.getLogger("job-apply-mcp.i05.evidence_library")
+log = logging.getLogger("veto-mcp.i05.evidence_library")
 
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_LIBRARY_DIR = BASE_DIR / "evidence_library"

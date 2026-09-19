@@ -58,3 +58,9 @@ tailored/
 # machine-local; never commit).
 channel_consent.jsonl
 channel_consent.key
+
+# runtime artifacts (Soft scrub hygiene)
+channel_consent.lock
+extensions_installed.json
+extensions_installed.json.bak
+initiatives/i11/reference/role-radar-digest/.data/

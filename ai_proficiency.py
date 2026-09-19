@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AI-proficiency training for the job-apply MCP server.
+"""AI-proficiency training for the Veto MCP server.
 
 Employers now screen for AI fluency. This module takes a candidate from
 zero to demonstrably AI-proficient *in their own role*:
@@ -46,7 +46,7 @@ from typing import Any
 from initiatives.i06 import ai_lab as _i06_ai_lab
 from initiatives.i06 import longitudinal as _i06_longitudinal
 
-log = logging.getLogger("job-apply-mcp.ai_proficiency")
+log = logging.getLogger("veto-mcp.ai_proficiency")
 
 BASE_DIR = Path(__file__).resolve().parent
 STORE_PATH = BASE_DIR / "ai_proficiency.json"

@@ -4,7 +4,7 @@
 Stdlib unittest only. Everything is offline: jobs, profiles, and
 preferences are plain dicts built in the fixtures below.
 
-Run:  cd ~/workspace/job-apply-mcp && .venv/bin/python -m unittest discover -s tests -v
+Run:  cd ~/workspace/veto && .venv/bin/python -m unittest discover -s tests -v
 """
 
 import sys

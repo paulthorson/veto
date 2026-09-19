@@ -110,7 +110,7 @@ from typing import Any
 
 from providers._contract import ConnectorManifest
 
-log = logging.getLogger("job-apply-mcp.i09.channels")
+log = logging.getLogger("veto-mcp.i09.channels")
 
 
 def _resolve_base_dir() -> Path:
