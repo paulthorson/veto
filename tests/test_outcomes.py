@@ -201,13 +201,13 @@ class CorrectionTest(unittest.TestCase):
         res = outcomes.correct_event(
             self.events, event_id=self.first["event_id"],
             corrected_fields={"role": "Engineer"},
-            actor="paul", reason="typo",
+            actor="operator", reason="typo",
         )
         self.assertTrue(res["appended"])
         ev = res["event"]
         self.assertEqual(ev["corrects"], self.first["event_id"])
         self.assertEqual(ev["role"], "Engineer")
-        self.assertEqual(ev["provenance"]["correction_actor"], "paul")
+        self.assertEqual(ev["provenance"]["correction_actor"], "operator")
         self.assertEqual(ev["provenance"]["correction_reason"], "typo")
         # original never edited: still on disk with the typo
         raw = outcomes.load_events(self.events, include_superseded=True)

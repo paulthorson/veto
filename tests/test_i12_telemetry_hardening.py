@@ -48,7 +48,7 @@ def _store(**kw):
 def _arm_roles(st):
     return st.set_roles(specialist="Jordan Ellis",
                         reviewer="Independent Reviewer",
-                        populated_by="Paul (test)")
+                        populated_by="operator (test)")
 
 
 def _trip_store(**kw):
@@ -80,7 +80,7 @@ class VetoHaltingTest(unittest.TestCase):
         st.record("tool_opened", tool="jd_decoder", surface="terminal",
                   session_id="sess1")
         self.assertTrue(st.enabled)
-        # ...then Paul files a veto mid-run...
+        # ...then the operator files a veto mid-run...
         st.paul_veto("pausing all collection pending review")
         # ...and recording refuses immediately.
         self.assertFalse(st.enabled)
@@ -104,7 +104,7 @@ class VetoHaltingTest(unittest.TestCase):
             st.lift_paul_veto("yes")
         with self.assertRaises(TelemetryError):
             st.lift_paul_veto("ok lift it")
-        st.lift_paul_veto("Paul: veto lifted after reviewing the report")
+        st.lift_paul_veto("Operator: veto lifted after reviewing the report")
         self.assertTrue(st.enabled)
         st.record("tool_opened", tool="jd_decoder", surface="terminal",
                   session_id="s9")
@@ -112,12 +112,12 @@ class VetoHaltingTest(unittest.TestCase):
     def test_lift_with_no_veto_raises(self):
         st = _store()
         with self.assertRaises(TelemetryError):
-            st.lift_paul_veto("Paul: there is no veto to lift, honest")
+            st.lift_paul_veto("Operator: there is no veto to lift, honest")
 
     def test_veto_lift_is_audited(self):
         st = _store()
         st.paul_veto("holding for review")
-        st.lift_paul_veto("Paul: reviewed, lifting the veto now")
+        st.lift_paul_veto("Operator: reviewed, lifting the veto now")
         log = (st.path.parent / "i12_telemetry_clearings.jsonl").read_text()
         self.assertIn("veto_lifted", log)
         self.assertIn("reviewed, lifting the veto now", log)
@@ -249,17 +249,19 @@ class ClearingIdentityTest(unittest.TestCase):
         st = _store()
         with self.assertRaises(TelemetryError):
             st.set_roles(specialist="Jordan Ellis", reviewer="jordan ellis",
-                         populated_by="Paul (test)")
+                         populated_by="operator (test)")
         with self.assertRaises(TelemetryError):
             st.set_roles(specialist="", reviewer="Independent Reviewer",
-                         populated_by="Paul (test)")
+                         populated_by="operator (test)")
 
     def test_registry_never_invents_names(self):
         st = _store()
         roles = st.get_roles()
         self.assertIsNone(roles["security_privacy_specialist"])
         self.assertIsNone(roles["independent_reviewer"])
-        self.assertIn("Paul", roles["note"])  # documents who populates it
+        # documents who populates it (production note; first-name scrub is
+        # Soft fixtures only — assert on the human/ops clause)
+        self.assertIn("ops", roles["note"])
 
     def test_clearing_requires_registry_specialist(self):
         st = _trip_store()
@@ -538,7 +540,7 @@ class StatusArmedTest(unittest.TestCase):
         self.assertTrue(st.status()["tripwire_armed"])
         st.paul_veto("hold")
         self.assertFalse(st.status()["tripwire_armed"])
-        st.lift_paul_veto("Paul: hold released after quick check")
+        st.lift_paul_veto("Operator: hold released after quick check")
         self.assertTrue(st.status()["tripwire_armed"])
 
     def test_disarmed_after_trip(self):

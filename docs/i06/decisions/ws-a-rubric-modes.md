@@ -129,7 +129,7 @@ Reopen this record (append-only entry) if any of these fire:
    markers are too loose (tripwire, not a target — see ops goal).
 3. User reports of false jargon flags ("leverage"/"bandwidth" heuristic
    wrong in a way the disclosed rule does not cover).
-4. The Q1 threshold gate (Paul + independent framework reviewer) changes
+4. The Q1 threshold gate (the operator + independent framework reviewer) changes
    scoring weights or the 70 default — the parity tests must be re-run
    against the new card.
 

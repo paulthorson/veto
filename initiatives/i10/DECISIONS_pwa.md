@@ -3,7 +3,7 @@
 Run ID: 2026-09-13-ws5-fixer
 Lane: Develop & Deliver
 Started: 2026-09-13
-Human arbiter: Paul Thorson
+Human arbiter: anonymous operator
 
 Constitutional format: genuine options (Rule 2, each phrased
 "trades X for Y"), a `schedule_driven` flag (Rule 3), and an `ops_goal`

@@ -92,7 +92,7 @@ Suggested read-mostly routes; all request/response bodies are JSON:
   `success_feedback.dismiss`.
 
 **There is deliberately no `POST .../submit` route.** Submission
-stays in the governed apply flow and requires Paul's explicit
+stays in the governed apply flow and requires the operator's explicit
 per-application confirmation. Do not add one here.
 
 ## 5. Phone coverage
@@ -114,5 +114,5 @@ in the terminal via `studio.py`.
   under active edit by other teams.
 - Cost of the omission: packet/diff/ATS/evidence flows are
   terminal-only until the webui owner wires the routes above.
-- Owner of the follow-up: Paul (per program rules, the decision
+- Owner of the follow-up: the operator (per program rules, the decision
   owner is named here).

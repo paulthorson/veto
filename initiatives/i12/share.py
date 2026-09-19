@@ -34,10 +34,10 @@ from typing import Any
 from .privacy import assert_clean
 
 #: Public URL for the Initiative 12 methodology page, stamped on every
-#: shared artifact. PLACEHOLDER — Paul sets the real public URL at launch.
+#: shared artifact. PLACEHOLDER — the operator sets the real public URL at launch.
 #: It is deliberately not a relative repo path: "docs/i12/methodology.md"
 #: is meaningless (and misleading) once the markdown leaves this machine.
-METHODOLOGY_URL = "TBD — public methodology URL set by Paul at launch"
+METHODOLOGY_URL = "TBD — public methodology URL set by the operator at launch"
 PRIVACY_NOTE = (
     "This card contains scores and factor names only. It never includes "
     "your resume text, job-description text, or personal details."

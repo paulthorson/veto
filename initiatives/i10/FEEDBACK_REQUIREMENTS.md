@@ -6,7 +6,7 @@ analytics, not contributions, not error logs, not issues. Automatic filing to
 GitHub is dead. There is no acceptance log and no shared bot token; neither
 will be built.
 
-**Status:** Approved scope by Paul Thorson, 2026-09-14 (chat). Initiative 10
+**Status:** Approved scope by the operator, 2026-09-14 (chat). Initiative 10
 (Distribution) follow-on — it concerns Veto running on user machines.
 
 **2026-09-14 rework:** This document previously specified automatic private

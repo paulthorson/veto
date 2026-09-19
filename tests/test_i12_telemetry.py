@@ -118,7 +118,7 @@ class TripwireTest(unittest.TestCase):
         # The clearing protocol requires a human-populated roles registry.
         self.st.set_roles(specialist="Jordan Ellis",
                           reviewer="Independent Reviewer",
-                          populated_by="Paul (test)")
+                          populated_by="operator (test)")
 
     def _inject_content(self):
         # Phone-shaped session id: passes the strict session_id grammar
@@ -237,11 +237,11 @@ class TripwireTest(unittest.TestCase):
         self.st.paul_veto("holding for deeper investigation")
         with self.assertRaises(TelemetryError):
             self.st.reenable()
-        # Lifting a veto is not a bare call: Paul types a confirmation.
+        # Lifting a veto is not a bare call: operator types a confirmation.
         with self.assertRaises(TelemetryError):
             self.st.lift_paul_veto("yes")
         self.st.lift_paul_veto(
-            "Paul: veto lifted after reviewing the specialist's report")
+            "Operator: veto lifted after reviewing the specialist's report")
         self.st.reenable()
         self.assertTrue(self.st.enabled)
 

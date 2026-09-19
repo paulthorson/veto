@@ -86,8 +86,8 @@ class FieldNameTest(unittest.TestCase):
 
 class PersonNameTest(unittest.TestCase):
     def test_bare_name_in_name_field_fires(self):
-        # C2: {"name": "Paul Thorson"} used to pass clean.
-        findings = scan_payload({"name": "Paul Thorson"})
+        # C2: {"name": "Alex Rivera"} used to pass clean.
+        findings = scan_payload({"name": "Alex Rivera"})
         self.assertTrue(any("person's name" in f for f in findings), findings)
 
     def test_single_token_name_field_value_passes(self):
@@ -103,13 +103,13 @@ class PersonNameTest(unittest.TestCase):
         # a token merely containing "name" counts, so "username" fires).
         for field in ("candidate_name", "full_name", "display_name",
                       "contact_name", "username", "userName", "fullName"):
-            findings = scan_payload({field: "Paul Thorson"})
+            findings = scan_payload({field: "Alex Rivera"})
             self.assertTrue(any("person's name" in f for f in findings),
                             (field, findings))
 
     def test_candidate_name_fails_closed(self):
         with self.assertRaises(ContentDetected):
-            assert_clean({"candidate_name": "Paul Thorson"}, "f2-probe")
+            assert_clean({"candidate_name": "Alex Rivera"}, "f2-probe")
 
     def test_product_name_exempt_from_name_check_only(self):
         # F2 scoping choice: "product_name" is a pinned SAFE_FIELD_NAMES
@@ -124,7 +124,7 @@ class PersonNameTest(unittest.TestCase):
     def test_non_name_token_field_is_documented_residual(self):
         # "hiring_manager" has no "name" token — accepted residual
         # false-negative risk, stated in D2.
-        self.assertEqual(scan_payload({"hiring_manager": "Paul Thorson"}), [])
+        self.assertEqual(scan_payload({"hiring_manager": "Alex Rivera"}), [])
 
 
 class NonStringKeyTest(unittest.TestCase):

@@ -28,13 +28,13 @@ Q3 exit gate, not a promise:
 * **Clearing protocol.** Re-enable requires, in order: (1) a clearing entry
   by the contracted security/privacy specialist *named in the roles
   registry*, stating the reason; (2) verification by the independent
-  reviewer *named in the roles registry*, a different person; (3) no Paul
+  reviewer *named in the roles registry*, a different person; (3) no operator
   veto. Every step is appended to a hash-chained, append-only JSONL audit
-  log that is verified on every load. The registry ships empty — Paul/ops
+  log that is verified on every load. The registry ships empty — operator/ops
   populate it via :meth:`TelemetryStore.set_roles`; clearing is blocked
   until both roles are named.
-* **Paul's veto.** ``paul_veto(reason)`` halts *recording* immediately — not
-  just re-enable — and stays in force until Paul himself lifts it with
+* **Operator veto.** ``paul_veto(reason)`` halts *recording* immediately — not
+  just re-enable — and stays in force until the operator lifts it with
   ``lift_paul_veto(confirmation)``, typing an explicit confirmation that is
   recorded in the audit log.
 * **No vanity metrics.** The reporting layer refuses to compute
@@ -44,7 +44,7 @@ Q3 exit gate, not a promise:
 TRUST BOUNDARY — what this module does and does not guarantee:
 
 * It DOES guarantee: no recording without opt-in consent; no recording
-  while the tripwire is tripped or Paul's veto stands; schema-allowlisted
+  while the tripwire is tripped or the operator's veto stands; schema-allowlisted
   events only; any scanner finding shuts analytics off, quarantines the
   payloads, and files an incident; clearing requires the registry-named
   specialist AND a registry-named, different reviewer; every
@@ -57,7 +57,7 @@ TRUST BOUNDARY — what this module does and does not guarantee:
   rule + tamper-evident log raise the cost (every step is attributable and
   immutable, and tampering the log breaks the chain on next load), but
   ultimate enforcement of human separation of duties is a human process
-  owned by Paul/ops: they populate the registry, they run the clearing,
+  owned by operator/ops: they populate the registry, they run the clearing,
   they answer for it.
 
 MIDNIGHT-PAGER RUNBOOK — what happens on a trip, and what the operator does:
@@ -82,7 +82,7 @@ MIDNIGHT-PAGER RUNBOOK — what happens on a trip, and what the operator does:
    directory the midnight-pager protocol needs.
 4. Clearing order: registry-named specialist writes ``clear_incident``
    (name + reason) → registry-named, different reviewer runs
-   ``verify_clearance`` (evidence ref) → ``reenable()``, unless Paul's veto
+   ``verify_clearance`` (evidence ref) → ``reenable()``, unless the operator's veto
    is in force. Every step lands in the hash-chained
    ``i12_telemetry_clearings.jsonl`` audit log.
 5. Retention: quarantine payloads are never auto-deleted.
@@ -204,12 +204,12 @@ class TripwireTripped(TelemetryError):
     Re-enable requires the clearing protocol:
     clear_incident(specialist_name, reason) -> verify_clearance(reviewer,
     evidence_ref) -> reenable(), with both actors named in the roles
-    registry and no Paul veto in force.
+    registry and no operator veto in force.
     """
 
 
 class VetoInForce(TelemetryError):
-    """Paul's veto is in force: recording is halted immediately."""
+    """the operator's veto is in force: recording is halted immediately."""
 
 
 class CorruptStateError(TelemetryError):
@@ -314,13 +314,13 @@ def _default_notify(state_path: Path, incident: dict[str, Any]) -> None:
         "runbook": ("Page the contracted security/privacy specialist named in "
                     "the roles registry, then follow the clearing protocol: "
                     "clear_incident -> verify_clearance -> reenable. "
-                    "Paul retains veto at every step."),
+                    "The operator retains veto at every step."),
     }, indent=2))
     os.chmod(marker, 0o600)
 
 
 _ROLES_TEMPLATE_NOTE = (
-    "Empty registry: Paul (or ops on his explicit instruction) must populate "
+    "Empty registry: the operator (or ops on his explicit instruction) must populate "
     "it via set_roles(specialist, reviewer, populated_by), naming the "
     "contracted security/privacy specialist and the independent reviewer. "
     "Clearing is blocked until both roles are named with two different people. "
@@ -502,7 +502,7 @@ class TelemetryStore:
 
     def set_roles(self, specialist: str, reviewer: str,
                   populated_by: str) -> dict[str, Any]:
-        """Populate the roles registry. A human action: Paul (or ops on his
+        """Populate the roles registry. A human action: the operator (or ops on his
         explicit instruction) names the contracted security/privacy
         specialist and the independent reviewer. Both must be non-empty and
         different people; the populator is recorded. Audited in the
@@ -530,7 +530,7 @@ class TelemetryStore:
             "independent_reviewer": r,
             "populated_by": pb,
             "populated_at": time.time(),
-            "note": ("Populated by a human (Paul/ops). This module checks "
+            "note": ("Populated by a human (operator/ops). This module checks "
                      "registry membership and distinctness; it cannot verify "
                      "the human behind the keyboard."),
         }
@@ -551,7 +551,7 @@ class TelemetryStore:
         if not s or not r:
             raise TelemetryError(
                 "clearing blocked: roles registry is empty or missing — "
-                "Paul/ops must populate it via set_roles(specialist, "
+                "operator/ops must populate it via set_roles(specialist, "
                 "reviewer, populated_by) naming the contracted "
                 "security/privacy specialist and the independent reviewer")
         if s.casefold() == r.casefold():
@@ -575,7 +575,7 @@ class TelemetryStore:
     @property
     def enabled(self) -> bool:
         """Recording is possible only with consent, the tripwire un-tripped,
-        AND no Paul veto. A veto filed mid-run flips this to False
+        AND no operator veto. A veto filed mid-run flips this to False
         immediately, halting collection."""
         return (bool(self._state["enabled"]) and self.consented
                 and not self._state["paul_veto"])
@@ -649,8 +649,8 @@ class TelemetryStore:
             raise ConsentRequired("analytics opt-in required before recording")
         if self._state["paul_veto"]:
             raise VetoInForce(
-                "Paul's veto is in force: recording halted immediately. "
-                "Only Paul can lift it (lift_paul_veto with his explicit "
+                "the operator's veto is in force: recording halted immediately. "
+                "Only the human can lift it (lift_paul_veto with his explicit "
                 "confirmation).")
         if not self._state["enabled"]:
             raise TripwireTripped(
@@ -778,7 +778,7 @@ class TelemetryStore:
             f"and live store cleared. A registry-named contracted "
             f"security/privacy specialist must write a clearing entry and "
             f"the registry-named independent reviewer must verify before "
-            f"re-enable. Paul retains veto."
+            f"re-enable. The operator retains veto."
         )
 
     # -- quarantine retention --------------------------------------------------
@@ -837,7 +837,7 @@ class TelemetryStore:
                        reason: str) -> dict[str, Any]:
         """Clearing entry. The specialist must be the contracted
         security/privacy specialist named in the roles registry (populated
-        by Paul/ops — never invented here); the reason must be substantive.
+        by operator/ops — never invented here); the reason must be substantive.
         The audit entry is written before the state mutation: if the log
         cannot record it, the clearing does not happen."""
         if not specialist_name or not specialist_name.strip():
@@ -915,7 +915,7 @@ class TelemetryStore:
         return rec
 
     def paul_veto(self, reason: str) -> None:
-        """Paul retains veto authority: halts recording immediately and
+        """The operator retains veto authority: halts recording immediately and
         blocks re-enable. A reason is required — a veto without one is not
         recorded. The veto itself is never blocked by a failing audit log:
         the restriction is applied first, the log entry best-effort after.
@@ -932,22 +932,22 @@ class TelemetryStore:
                        f"the veto is recorded in state regardless")
 
     def lift_paul_veto(self, confirmation: str | None = None) -> None:
-        """Lift Paul's veto. Only Paul performs this, in a human session —
+        """Lift the operator's veto. Only the human performs this, in a human session —
         it is not a bare call: he must type an explicit confirmation (at
         least 12 characters), which is recorded verbatim in the
         tamper-evident audit log alongside the lifted veto's reason.
 
         This is a speed bump plus an immutable audit trail, not identity
-        proof: the module cannot verify that the typist is Paul (see TRUST
+        proof: the module cannot verify that the typist is the operator (see TRUST
         BOUNDARY in the module docstring).
         """
         veto = self._state["paul_veto"]
         if not veto:
-            raise TelemetryError("no Paul veto is in force")
+            raise TelemetryError("no operator veto is in force")
         if not isinstance(confirmation, str) or len(confirmation.strip()) < 12:
             raise TelemetryError(
                 "lifting a veto requires an explicit human confirmation "
-                "(at least 12 characters), typed by Paul — a bare "
+                "(at least 12 characters), typed by the operator — a bare "
                 "lift_paul_veto() call is refused")
         self._append_log("veto_lifted", {
             "veto_reason": veto["reason"],
@@ -961,7 +961,7 @@ class TelemetryStore:
         """Re-enable analytics after the full clearing protocol."""
         if self._state["paul_veto"]:
             raise TelemetryError(
-                "Paul's veto is in force; analytics cannot be re-enabled.")
+                "the operator's veto is in force; analytics cannot be re-enabled.")
         open_incs = [i for i in self._state["incidents"]
                      if i["status"] == "open"]
         if open_incs:
