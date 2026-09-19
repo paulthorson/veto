@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Near-miss review queue for job-apply-mcp (Initiative 02).
+"""Near-miss review queue for Veto (Initiative 02).
 
 Postings that scored just under the fit veto bar (default 50–60) land
 here for human review: the veto is heuristic, and a near-miss can be
@@ -25,7 +25,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.near_miss")
+log = logging.getLogger("veto-mcp.near_miss")
 
 BASE_DIR = Path(__file__).resolve().parent
 QUEUE_FILE = BASE_DIR / "near_miss.json"

@@ -24,7 +24,7 @@ from typing import Any
 from . import diff_explain
 from .contracts import CONTRACT_VERSION
 
-log = logging.getLogger("job-apply-mcp.i05.packet")
+log = logging.getLogger("veto-mcp.i05.packet")
 
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_PACKETS_DIR = BASE_DIR / "packets"

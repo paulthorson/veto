@@ -192,7 +192,7 @@ def _default_record_fn(job_id: str, result: dict) -> dict:
         except Exception:  # noqa: BLE001 - capture must never break recording
             import logging
 
-            logging.getLogger("job-apply-mcp.apply_queue").exception(
+            logging.getLogger("veto-mcp.apply_queue").exception(
                 "outcome-min-v0 capture failed for %s", job_id
             )
         return existing
@@ -224,7 +224,7 @@ def _default_record_fn(job_id: str, result: dict) -> dict:
     except Exception:  # noqa: BLE001 - capture must never break recording
         import logging
 
-        logging.getLogger("job-apply-mcp.apply_queue").exception(
+        logging.getLogger("veto-mcp.apply_queue").exception(
             "outcome-min-v0 capture failed for %s", job_id
         )
     return entry

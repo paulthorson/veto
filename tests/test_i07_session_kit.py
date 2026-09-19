@@ -212,7 +212,7 @@ class SessionKitTest(unittest.TestCase):
         corrupt = b'{"unclosed": [garbage'
         session_kit.SESSIONS_FILE.write_bytes(corrupt)
 
-        with self.assertLogs("job-apply-mcp.i07.session_kit", level="ERROR"):
+        with self.assertLogs("veto-mcp.i07.session_kit", level="ERROR"):
             got = session_kit.get_notes(hs_id, "me")
         self.assertFalse(got["ok"])
         self.assertIn("corrupt", got["error"])

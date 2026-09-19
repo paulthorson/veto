@@ -63,7 +63,7 @@ from providers._common import (
     strip_html,
 )
 
-log = logging.getLogger("job-apply-mcp.byol")
+log = logging.getLogger("veto-mcp.byol")
 
 BASE_DIR = Path(__file__).resolve().parent
 

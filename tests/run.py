@@ -43,7 +43,7 @@ def main() -> int:
         by_module.setdefault(case.__class__.__module__, []).append(case)
 
     print("=" * 76)
-    print("job-apply-mcp test suite")
+    print("veto test suite")
     print("=" * 76)
 
     rows = []

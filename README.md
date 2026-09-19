@@ -98,7 +98,7 @@ operates a logged-in session on your behalf (report §9.2).
 
 ```bash
 git clone https://github.com/paulthorson/veto
-cd job-apply-mcp   # the directory you cloned it into, if named otherwise
+cd veto   # the directory you cloned it into, if named otherwise
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 # 1. Onboarding: profile, LinkedIn import, channel choice, risk acknowledgment
@@ -206,7 +206,7 @@ the official-API boards above, or add any posting as a saved listing.
 ## Setup
 
 ```bash
-cd job-apply-mcp   # the directory you cloned it into, if named otherwise
+cd veto   # the directory you cloned it into, if named otherwise
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
@@ -306,9 +306,9 @@ checkout:
 ```json
 {
   "mcpServers": {
-    "job-apply": {
-      "command": "/path/to/job-apply-mcp/.venv/bin/python",
-      "args": ["/path/to/job-apply-mcp/server.py"],
+    "veto": {
+      "command": "/path/to/veto/.venv/bin/python",
+      "args": ["/path/to/veto/server.py"],
       "env": {}
     }
   }
@@ -320,7 +320,7 @@ The server communicates over stdio using **newline-delimited JSON-RPC**
 
 ### Claude Desktop
 
-Add the `job-apply` entry above to your Claude Desktop config
+Add the `veto` entry above to your Claude Desktop config
 (`~/Library/Application Support/Claude/claude_desktop_config.json`
 on macOS, `%APPDATA%\Claude\claude_desktop_config.json` on Windows —
 merge it into the existing `mcpServers` object, don't replace the file).
@@ -330,7 +330,7 @@ Restart Claude Desktop afterwards.
 
 Muse CLI and most MCP clients accept the same `mcpServers` shape — point
 them at the command/args above. For clients that take a single server
-entry, drop the `mcpServers` wrapper and use just the `job-apply` object.
+entry, drop the `mcpServers` wrapper and use just the `veto` object.
 
 ## How applying works
 
@@ -403,7 +403,7 @@ apply_to_job(
 Without `JOB_MCP_BROWSER_APPLY=1`, `confirm=True` keeps the Phase 1
 behavior (local log only + direct `apply_url` for manual submission).
 
-Screenshots land in `job-apply-mcp/screenshots/` (pre-fill preview and a
+Screenshots land in `veto/screenshots/` (pre-fill preview and a
 post-fill shot). Each confirmed Phase 2 attempt appends to
 `applications.json` with `status` of `browser_filled` or
 `browser_failed`, the screenshot paths, and `"submitted": false` —
@@ -458,7 +458,7 @@ All keys optional. Explicit `first_name`/`last_name` win over splitting
 ## Project layout
 
 ```
-job-apply-mcp/
+veto/
 ├── server.py           # MCP server (providers, tools, Phase 2 wiring)
 ├── cli.py              # terminal CLI mirroring the MCP tools
 ├── wizard.py           # onboarding wizard → profiles/profile.json
@@ -519,7 +519,7 @@ on Ubuntu with Python 3.12:
 Push a tag like `v0.1.0` and `.github/workflows/release.yml`:
 
 1. Builds the Docker image and pushes it to
-   `ghcr.io/paulthorson/job-apply-mcp` with the version tag and `latest`
+   `ghcr.io/paulthorson/veto` with the version tag and `latest`
 2. Creates a GitHub Release for the tag with auto-generated notes
 
 ```bash
@@ -532,13 +532,13 @@ The image runs the MCP server on stdio (no ports — see
 [`Dockerfile`](Dockerfile)):
 
 ```bash
-docker run -i ghcr.io/paulthorson/job-apply-mcp:latest
+docker run -i ghcr.io/paulthorson/veto:latest
 ```
 
 To build locally:
 
 ```bash
-docker build -t job-apply-mcp .
+docker build -t veto .
 ```
 
 Dependency updates (pip, Docker base image, GitHub Actions) are handled
@@ -581,7 +581,7 @@ existed. Watches persist in `watches.json` (gitignored).
 **Cron:** `python watch.py` checks all saved watches, prints JSON, exits 0:
 
 ```cron
-0 9 * * * cd ~/workspace/job-apply-mcp && .venv/bin/python watch.py
+0 9 * * * cd ~/workspace/veto && .venv/bin/python watch.py
 ```
 
 ### Multiple profiles

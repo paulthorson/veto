@@ -1,4 +1,4 @@
-"""Vendored-copy tests for the terminal theme (job-apply-mcp root).
+"""Vendored-copy tests for the terminal theme (Veto root).
 
 These tests exercise the VENDORED ``veto_theme.py`` / ``theme.json`` at the
 repo root — the copy produced by ``scripts/sync-design-system.sh`` with the

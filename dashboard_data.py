@@ -1,4 +1,4 @@
-"""KPI snapshot for the job-apply terminal dashboard (stdlib only).
+"""KPI snapshot for the Veto terminal dashboard (stdlib only).
 
 ``compute_kpis(root)`` reads the local JSON state stores under ``root``
 (default: this repo directory) and returns a fixed-shape dict. Missing or

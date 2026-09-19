@@ -1,7 +1,7 @@
 """Veto Web UI backend — stdlib-only HTTP API server.
 
 Serves the static frontend in ``webui/`` (built by the frontend worker)
-plus a JSON API over the real job-apply modules:
+plus a JSON API over the real Veto modules:
 
   GET  /api/tools        -> tool/action/param catalog
   GET  /api/kpis         -> dashboard_data.compute_kpis(repo_root)

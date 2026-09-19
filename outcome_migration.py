@@ -46,7 +46,7 @@ from typing import Any
 
 import outcomes
 
-log = logging.getLogger("job-apply-mcp.outcome_migration")
+log = logging.getLogger("veto-mcp.outcome_migration")
 
 BASE_DIR = Path(__file__).resolve().parent
 

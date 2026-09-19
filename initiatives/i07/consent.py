@@ -83,7 +83,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.i07.consent")
+log = logging.getLogger("veto-mcp.i07.consent")
 
 BASE_DIR = Path(__file__).resolve().parent
 

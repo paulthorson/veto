@@ -133,7 +133,7 @@ class LoudFallbackTests(unittest.TestCase):
         ), mock.patch.object(
             sys, "path", [tmpdir.name] + sys.path
         ), self.assertLogs(
-            "job-apply-mcp.providers.health", level="ERROR"
+            "veto-mcp.providers.health", level="ERROR"
         ) as logs:
             module = health_contract._provider_health_module()
         self.assertIsNone(module)
@@ -146,7 +146,7 @@ class LoudFallbackTests(unittest.TestCase):
         with mock.patch.object(
             health_contract, "_provider_health_module", return_value=None
         ), self.assertLogs(
-            "job-apply-mcp.providers.health", level="ERROR"
+            "veto-mcp.providers.health", level="ERROR"
         ):
             store = health_contract.default_store()
         self.assertIsInstance(store, FileHealthStore)
@@ -169,7 +169,7 @@ class LoudFallbackTests(unittest.TestCase):
         with mock.patch.object(
             health_contract, "_provider_health_module", return_value=fake_ph
         ), self.assertLogs(
-            "job-apply-mcp.providers.health", level="ERROR"
+            "veto-mcp.providers.health", level="ERROR"
         ) as logs:
             adapter = ProviderHealthAdapter()
             self.assertIsNone(adapter.latest("greenhouse"))
@@ -240,7 +240,7 @@ class DriftHandlingTests(unittest.TestCase):
         # An unrecognized captcha_state is never silently coerced to
         # "none" (cleared): loud warning + fail-safe "blocking".
         with self.assertLogs(
-            "job-apply-mcp.providers.health", level="WARNING"
+            "veto-mcp.providers.health", level="WARNING"
         ) as logs:
             snap = snapshot_from_status(
                 "x", {"status": "ok", "captcha_state": "mystery"}

@@ -47,7 +47,7 @@ from typing import Any
 
 from .contracts import CONTRACT_VERSION
 
-log = logging.getLogger("job-apply-mcp.i05.versions")
+log = logging.getLogger("veto-mcp.i05.versions")
 
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_VARIANTS_DIR = BASE_DIR / "resume_variants"

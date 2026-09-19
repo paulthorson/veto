@@ -226,7 +226,7 @@ class TestGate(unittest.TestCase):
         self.assertEqual(len(fake.recorded), 1)
         rec = fake.recorded[0]
         self.assertEqual(rec["verdict"], "veto")
-        self.assertEqual(rec["ticket"], "job-apply:linkedin:abc123")
+        self.assertEqual(rec["ticket"], "veto:linkedin:abc123")
         self.assertEqual(rec["domain"], "universal")
 
     def test_clean_check_passes_through(self):

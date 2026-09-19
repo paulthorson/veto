@@ -172,7 +172,7 @@ class SafetyTest(unittest.TestCase):
         with self.assertRaises(safety.SafetyStateError):
             safety._load_safety()
         # Fail closed: every read is deny, never permissive.
-        with self.assertLogs("job-apply-mcp.i07.safety", level="ERROR"):
+        with self.assertLogs("veto-mcp.i07.safety", level="ERROR"):
             self.assertTrue(safety.is_blocked("me", self.mentor_id))
         self.assertTrue(safety.is_quarantined(self.mentor_id))
         check = safety.consent_block_check("me", self.mentor_id)
@@ -322,7 +322,7 @@ class SafetyTest(unittest.TestCase):
             self._matchmake_refuses()
             # Fail-closed reads stay deny, never permissive, with a loud
             # log line on the deny path.
-            with self.assertLogs("job-apply-mcp.i07.safety", level="ERROR"):
+            with self.assertLogs("veto-mcp.i07.safety", level="ERROR"):
                 self.assertTrue(safety.is_blocked("me", self.mentor_id))
             self.assertTrue(safety.is_quarantined(self.mentor_id))
         finally:

@@ -31,7 +31,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.funnels")
+log = logging.getLogger("veto-mcp.funnels")
 
 BASE_DIR = Path(__file__).resolve().parent
 APPLICATIONS_FILE = BASE_DIR / "applications.json"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline calibration harness for job-apply-mcp (Initiative 02).
+"""Offline calibration harness for Veto (Initiative 02).
 
 Evaluates the Initiative 02 evidence gate against the ``outcome-min-v0``
 event store and produces weight reports — **without ever applying new
@@ -47,7 +47,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.calibration")
+log = logging.getLogger("veto-mcp.calibration")
 
 BASE_DIR = Path(__file__).resolve().parent
 

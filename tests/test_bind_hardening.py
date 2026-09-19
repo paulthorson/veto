@@ -24,7 +24,7 @@ changes that posture, not merely the behavior.
 
 Convention: stdlib unittest only. Real sockets; ephemeral ports.
 
-Run:  cd ~/workspace/job-apply-mcp && python3 -m pytest tests/test_bind_hardening.py
+Run:  cd ~/workspace/veto && python3 -m pytest tests/test_bind_hardening.py
 """
 
 from __future__ import annotations

@@ -9,7 +9,7 @@ Convention mirrors tests/test_dashboard_wizards.py: stdlib unittest only,
 module boundaries mocked so no test touches the network, a real Tailscale
 binary, or stdin.
 
-Run:  cd ~/workspace/job-apply-mcp && .venv/bin/python -m pytest tests/test_wizard_phone.py
+Run:  cd ~/workspace/veto && .venv/bin/python -m pytest tests/test_wizard_phone.py
 """
 
 from __future__ import annotations

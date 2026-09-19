@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Governed AI crew for job-apply-mcp.
+"""Governed AI crew for veto-mcp.
 
 Eleven agent personas drawn from the repo's agentic-governance harnesses
 (``governance/engine.py``) and the framework's role harnesses

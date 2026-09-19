@@ -1,4 +1,4 @@
-# Job Apply MCP server — stdio container.
+# Veto MCP server — stdio container.
 # No ports are exposed: the server speaks MCP over stdin/stdout,
 # so there is intentionally no HEALTHCHECK endpoint.
 FROM python:3.12-slim

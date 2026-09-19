@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mentor matchmaking for the job-apply MCP server.
+"""Mentor matchmaking for the Veto MCP server.
 
 Connects mentors with people seeking mentorship, opt-in only on both sides:
 
@@ -77,7 +77,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.mentors")
+log = logging.getLogger("veto-mcp.mentors")
 
 BASE_DIR = Path(__file__).resolve().parent
 

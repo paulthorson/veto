@@ -4,7 +4,7 @@
 Stdlib unittest only. No network (urllib is mocked), no real env
 dependence (env vars monkeypatched), log file redirected to a temp dir.
 
-Run:  cd ~/workspace/job-apply-mcp && python3 -m unittest discover -s tests -v
+Run:  cd ~/workspace/veto && python3 -m unittest discover -s tests -v
 """
 
 import json

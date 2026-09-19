@@ -79,7 +79,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.session_rescue")
+log = logging.getLogger("veto-mcp.session_rescue")
 
 # ---------------------------------------------------------------------------
 # Detectors

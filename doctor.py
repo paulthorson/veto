@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Setup health check for the job-apply MCP server.
+"""Setup health check for the Veto MCP server.
 
 ``run_doctor() -> dict`` returns ``{"ok": bool, "checks": [...]}`` where
 each check is ``{"name", "ok", "detail", "severity"}``. Severity is
@@ -299,7 +299,7 @@ def register_cli(subparsers: Any) -> dict[str, Any]:
     set so the owner can dispatch ``args.func(args)``.
     """
     p = subparsers.add_parser(
-        "doctor", help="Check the job-apply setup health (profile, "
+        "doctor", help="Check the Veto setup health (profile, "
         "compliance, browsers, sessions, preferences, boards)."
     )
     p.add_argument(
@@ -322,7 +322,7 @@ def register_tools(mcp: Any) -> None:
 
 if __name__ == "__main__":
     _parser = argparse.ArgumentParser(
-        prog="doctor.py", description="Health check for the job-apply setup."
+        prog="doctor.py", description="Health check for the Veto setup."
     )
     _sub = _parser.add_subparsers(dest="command", required=True)
     register_cli(_sub)

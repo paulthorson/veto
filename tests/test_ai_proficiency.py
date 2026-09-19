@@ -4,7 +4,7 @@
 All store I/O is redirected to a temporary directory — the real
 ``ai_proficiency.json`` is never touched.
 
-Run:  cd ~/workspace/job-apply-mcp && .venv/bin/python -m unittest discover -s tests
+Run:  cd ~/workspace/veto && .venv/bin/python -m unittest discover -s tests
 """
 
 from __future__ import annotations

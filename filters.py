@@ -16,7 +16,7 @@ import logging
 import re
 from typing import Any
 
-log = logging.getLogger("job-apply-mcp.filters")
+log = logging.getLogger("veto-mcp.filters")
 
 # ---------------------------------------------------------------------------
 # Salary

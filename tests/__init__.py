@@ -1,4 +1,4 @@
-"""Tests for the job-apply MCP server.
+"""Tests for the Veto MCP server.
 
 Run the whole suite from the project directory::
 

@@ -11,7 +11,7 @@ two tests that must observe printed output capture it into buffers.
 
 Convention: stdlib unittest only.
 
-Run:  cd ~/workspace/job-apply-mcp && python3 -m pytest tests/test_webui_auth.py
+Run:  cd ~/workspace/veto && python3 -m pytest tests/test_webui_auth.py
 """
 
 from __future__ import annotations
