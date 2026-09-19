@@ -612,25 +612,25 @@ class TestRegistry(unittest.TestCase):
         # Missing authorization.
         res = reg.override_automated_gate(
             "role-radar-digest", "security", verdict="pass",
-            reviewer="paul", notes="false positive in scanner",
+            reviewer="operator", notes="false positive in scanner",
             authorized_by="")
         self.assertFalse(res["ok"])
         self.assertIn("authorization", res["error"])
         # Missing justification.
         res = reg.override_automated_gate(
             "role-radar-digest", "security", verdict="pass",
-            reviewer="paul", notes=" ", authorized_by="paul")
+            reviewer="operator", notes=" ", authorized_by="operator")
         self.assertFalse(res["ok"])
         # Automated reviewer is not a human.
         res = reg.override_automated_gate(
             "role-radar-digest", "security", verdict="pass",
             reviewer="policy-kit (automated)", notes="x",
-            authorized_by="paul")
+            authorized_by="operator")
         self.assertFalse(res["ok"])
         # Human gates cannot go through the override path.
         res = reg.override_automated_gate(
             "role-radar-digest", "ux", verdict="pass",
-            reviewer="paul", notes="x", authorized_by="paul")
+            reviewer="operator", notes="x", authorized_by="operator")
         self.assertFalse(res["ok"])
 
     def test_override_automated_gate_audited(self):
@@ -639,16 +639,16 @@ class TestRegistry(unittest.TestCase):
         self._submitted(reg, ext)
         res = reg.override_automated_gate(
             "role-radar-digest", "security", verdict="fail",
-            reviewer="paul", notes="scanner missed an exfil path",
-            authorized_by="paul (human authority)")
+            reviewer="operator", notes="scanner missed an exfil path",
+            authorized_by="operator (human authority)")
         self.assertTrue(res["ok"], res)
         history = reg.gate_history("role-radar-digest")
         overrides = [h for h in history
                      if h["gate"] == "security" and h["override"]]
         self.assertEqual(len(overrides), 1)
         self.assertEqual(overrides[0]["authorized_by"],
-                         "paul (human authority)")
-        self.assertEqual(overrides[0]["reviewer"], "paul")
+                         "operator (human authority)")
+        self.assertEqual(overrides[0]["reviewer"], "operator")
         self.assertFalse(reg.installable("role-radar-digest")["ok"])
 
     # --- KICK_BACK fix: install-time re-verification ----------------------

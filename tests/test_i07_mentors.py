@@ -257,7 +257,7 @@ class HiddenContactSealTest(_IsolatedMentors):
 
     def test_connection_draft_seals_hidden_url(self):
         d = mentors.connection_draft(
-            self.hidden_card["id"], "Paul", "get better at interviews"
+            self.hidden_card["id"], "Alex", "get better at interviews"
         )
         self.assertTrue(d["ok"])
         self.assertNotIn("mentor_linkedin_url", d)
@@ -270,7 +270,7 @@ class HiddenContactSealTest(_IsolatedMentors):
 
     def test_connection_draft_public_keeps_url(self):
         d = mentors.connection_draft(
-            self.public_card["id"], "Paul", "get better at interviews"
+            self.public_card["id"], "Alex", "get better at interviews"
         )
         self.assertTrue(d["ok"])
         self.assertEqual(
@@ -365,7 +365,7 @@ class ExclusionTest(_IsolatedMentors):
     def test_direct_id_tools_reject_blocked_loudly(self):
         safety_mod.block_actor("me", self.mid, reason="review repro")
         for fn, args in (
-            (mentors.connection_draft, (self.mid, "Paul", "goal")),
+            (mentors.connection_draft, (self.mid, "Alex", "goal")),
             (mentors.session_agenda, (self.mid, "goal")),
             (mentors.record_outreach, (self.mid,)),
         ):
@@ -377,7 +377,7 @@ class ExclusionTest(_IsolatedMentors):
         safety_mod.report("r1", self.mid, "spam")
         safety_mod.report("r2", self.mid, "spam")
         for fn, args in (
-            (mentors.connection_draft, (self.mid, "Paul", "goal")),
+            (mentors.connection_draft, (self.mid, "Alex", "goal")),
             (mentors.session_agenda, (self.mid, "goal")),
             (mentors.record_outreach, (self.mid,)),
         ):
@@ -387,7 +387,7 @@ class ExclusionTest(_IsolatedMentors):
 
     def test_direct_id_tools_still_work_when_clean(self):
         self.assertTrue(
-            mentors.connection_draft(self.mid, "Paul", "goal")["ok"]
+            mentors.connection_draft(self.mid, "Alex", "goal")["ok"]
         )
         self.assertTrue(mentors.session_agenda(self.mid, "goal")["ok"])
         self.assertTrue(mentors.record_outreach(self.mid)["ok"])

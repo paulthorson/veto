@@ -83,7 +83,7 @@ class RenderTest(unittest.TestCase):
 
     def test_methodology_link_is_not_a_relative_path(self):
         # C6: a relative repo path is meaningless once markdown leaves the
-        # machine. Until Paul sets the real public URL, it must be an
+        # machine. Until the operator sets the real public URL, it must be an
         # explicit TBD placeholder — never an invented URL.
         self.assertTrue(share.METHODOLOGY_URL.startswith("TBD"))
         self.assertNotIn("docs/", share.METHODOLOGY_URL)
@@ -96,7 +96,7 @@ class BuilderRejectionTest(unittest.TestCase):
 
     def test_score_card_rejects_bare_name(self):
         # C2: a person's name in the whitelisted "name" field is content.
-        bad = [{"name": "Paul Thorson", "score": 90,
+        bad = [{"name": "Alex Rivera", "score": 90,
                 "evidence_summary": "clean summary"}]
         with self.assertRaises(ContentDetected):
             share.score_card("Backend Engineer", "Acme", 90, bad,
