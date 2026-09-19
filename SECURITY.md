@@ -7,6 +7,8 @@ rather than opening a public issue.
 
 **Contact:** hello@vetomcp.com
 
+> Status: mailbox pending owner confirmation (2026-09-19) — do not rely on it until confirmed. Confirmed when the project owner verifies the mailbox exists and is monitored; this flag is removed then.
+
 Please include: what you found, the version or commit you were on,
 and steps to reproduce. Don't publish exploit details until there
 has been a chance to fix the problem.

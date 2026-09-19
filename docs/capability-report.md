@@ -1,8 +1,8 @@
 # Veto capability report — runtime observation
 
 Directive §8 (execute.md). Commit observed:
-`2dd4a058e0229fc3775ceabc45873afec405278a`
-Date of observation: 2026-09-14. Pin updated: 2026-09-19 — the previously recorded pin is not a commit object in this repository, so the baseline was carried forward to `2dd4a058e0229fc3775ceabc45873afec405278a`, verified with `git cat-file -t`; the 2026-09-19 technical-writer fix series is applied on top of that baseline.
+`4b5d5b9aa6a5eaf6bbb9e73744f966d21c1abbfb`
+Date of observation: 2026-09-14. Pin updated: 2026-09-19 — the previously recorded pin is not a commit object in this repository's published history, so the baseline was corrected to `4b5d5b9aa6a5eaf6bbb9e73744f966d21c1abbfb` (the 2026-09-14 tree on this branch's lineage), verified with `git cat-file -t`; the 2026-09-19 technical-writer fix series is applied on top of the published main branch.
 
 Note: the report content below is unchanged from the 2026-09-14 observation; only the pin was corrected to a commit that exists. No claim is made here about whether commits between the original observation and this pin update were documentation-only.
 
