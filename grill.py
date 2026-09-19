@@ -11,8 +11,8 @@ instead of invented facts.
 
 Channel reality (verified 2026-09-10):
 
-* **WhatsApp** is the only proactive channel, via the Muse WhatsApp side
-  chat (a 1:1 user<->Muse conversation). iMessage cannot be auto-sent
+* **WhatsApp** is the only proactive channel, via the Muse app's WhatsApp side
+  chat (a 1:1 user conversation). iMessage cannot be auto-sent
   (paired iPhones only expose ``message.draft``, which still requires
   the user to hit send). Discord has no integration. SMS needs a paired
   Android with send capability.
