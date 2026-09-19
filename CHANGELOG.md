@@ -36,8 +36,10 @@ and the AI earns your trust over time before you can switch the breaker off.
 
 ## v0.1.0 — 2026-09-12
 
-First release. Veto searches 8 job boards (Greenhouse, Lever, Ashby, Adzuna, LinkedIn,
-Indeed, ZipRecruiter), grills you about the gaps in your resume over chat or WhatsApp,
+First release. Veto searches the 4 official board APIs (Greenhouse, Lever, Ashby, Adzuna).
+The LinkedIn, Indeed, and ZipRecruiter providers were removed in the post-hardening pass;
+Glassdoor remains a locked stub that performs no scraping. Veto grills you about the gaps
+in your resume over chat or WhatsApp,
 tailors every application to the role without inventing experience, fills in
 application forms but stops before submitting — you click submit — and tracks your
 applications, stages, and follow-ups. Runs as an MCP server with a terminal dashboard
