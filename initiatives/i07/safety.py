@@ -7,7 +7,7 @@
 * **Report** — abuse reports with a fixed category; 2+ distinct reporters
   mark an actor ``pending_human_review`` (hidden from discovery, pending
   handshakes withdrawn, audit entry written). There is no auto-takedown:
-  the quarantine holds until the real-party pilot human gate — Paul +
+  the quarantine holds until the real-party pilot human gate — the operator +
   an independent reviewer — clears it via ``clear_quarantine``.
   Reporter ids are caller-asserted in the local-first deployment (see
   CONTRACTS §2 trust boundary), so two reports are a tripwire for human
@@ -99,7 +99,7 @@ class SafetyStateError(RuntimeError):
 
     Raising (instead of silently returning an empty state) is the
     fail-closed path: all safety reads treat unreadable state as deny,
-    and no write may proceed against it. Only a human — Paul — clears
+    and no write may proceed against it. Only a human — the operator — clears
     or repairs the underlying file.
     """
 
@@ -543,7 +543,7 @@ def _maybe_quarantine(reported_id: str) -> bool:
     single report never triggers anything and a two-report quarantine is
     marked ``pending_human_review``. The actor stays hidden from discovery
     and pending handshakes are withdrawn as a conservative hold; only
-    :func:`clear_quarantine` with the Paul + independent-reviewer gate
+    :func:`clear_quarantine` with the operator + independent-reviewer gate
     lifts it. There is no auto-takedown path.
     """
     if is_quarantined(reported_id):
@@ -577,7 +577,7 @@ def clear_quarantine(actor_id: str, *, reviewed_by: str) -> dict[str, Any]:
     """Lift a quarantine after human review. ``reviewed_by`` is required and recorded.
 
     The quarantine is ``pending_human_review`` from the moment it is set;
-    the real-party pilot human gate is Paul + an independent reviewer.
+    the real-party pilot human gate is the operator + an independent reviewer.
     ``reviewed_by`` must name the reviewer(s) who cleared it (e.g.
     ``"paul+reviewer"``); a blank value is rejected. There is no automatic
     or single-report takedown path in either direction.

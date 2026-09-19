@@ -109,7 +109,7 @@ def _default_entries() -> list[dict[str, Any]]:
                    "tool demos, shareable artifacts, and education library "
                    "before any public surface exists.",
             "limitation": "Launch-gated: nothing in this package goes public "
-                          "until Paul explicitly orders a launch (hard "
+                          "until the operator explicitly orders a launch (hard "
                           "boundary in initiatives/i12/__init__.py).",
             "source": "initiatives/i12/tools.py, contracts.py, share.py, "
                       "changelog.py, onboarding.py, telemetry.py (new modules, "

@@ -183,7 +183,7 @@ _QUOTE_RE = re.compile(
 #: check (F2). "name" is in SAFE_FIELD_NAMES because share factor entries
 #: use it for factor names ("skills"), so the forbidden-*name* check is
 #: skipped for it — but a multi-word capitalized value there
-#: ("Paul Thorson") is a person's name, never a factor name, so "name"
+#: ("Alex Rivera") is a person's name, never a factor name, so "name"
 #: keeps the value check (C2). Any other field whose name contains a
 #: "name" token (candidate_name, full_name, display_name, contact_name,
 #: username, ...) gets the check too — UNLESS it is in SAFE_FIELD_NAMES
@@ -228,7 +228,7 @@ def _name_value_check_applies(field_name: str) -> bool:
         return True
     return field_name not in SAFE_FIELD_NAMES
 
-#: Two or more capitalized words, e.g. "Paul Thorson". Conservative on
+#: Two or more capitalized words, e.g. "Alex Rivera". Conservative on
 #: purpose: single tokens ("skills") and lowercase labels never match.
 _PERSON_NAME_RE = re.compile(r"^[A-Z][a-zA-Z'.-]+(?: [A-Z][a-zA-Z'.-]+)+$")
 

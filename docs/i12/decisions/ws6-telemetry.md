@@ -63,14 +63,14 @@ lands.
     exists to protect.
 - **Rejected: catch-and-return-fresh (status quo ante).**
   - Trades away durability to get an always-bootable store — rejected: one
-    bad byte would have wiped a Paul veto.
+    bad byte would have wiped an operator veto.
 - `schedule_driven`: false.
 - `ops_goal`: "corrupt-state startups that silently reset — zero (proven
   in tests)".
 
 ### D4: separation of duties via registry + distinct identities + hash chain (C4)
 - **Chosen: a human-populated roles registry (`i12_telemetry_roles.json`,
-  ships empty, populated by Paul/ops via `set_roles`); clearing requires
+  ships empty, populated by operator/ops via `set_roles`); clearing requires
   the registry-named specialist, verification requires the registry-named
   reviewer, and they must be different people; every clearing/veto/purge
   action is appended to a hash-chained JSONL log verified on every load;
@@ -89,7 +89,7 @@ lands.
 - **Residual trust boundary (documented in the module docstring):** the
   module checks registry membership and distinctness; it cannot verify the
   human behind the keyboard. Ultimate enforcement of human independence is
-  a human process owned by Paul/ops — they populate the registry, they run
+  a human process owned by operator/ops — they populate the registry, they run
   the clearing, they answer for it.
 - `schedule_driven`: false.
 - `ops_goal`: "clearings completed by non-registry identities — zero
@@ -167,7 +167,7 @@ lands.
   tests)".
 
 ### D9: veto lift and verification nits (C4, nit 10)
-- **Chosen: `lift_paul_veto(confirmation)` requires Paul's explicit typed
+- **Chosen: `lift_paul_veto(confirmation)` requires the operator's explicit typed
   confirmation (≥12 chars), recorded verbatim in the audit log;
   `verify_clearance` rejects empty `evidence_ref` and duplicate
   verifications; `status()["tripwire_armed"]` reflects actual state

@@ -36,7 +36,7 @@ The roadmap's Q1 gate defines an **observed gap** as: the same
 disclosed rubric dimension scoring below the approved threshold in at
 least 2 of 3 completed sessions — OR an explicit user selection.
 :class:`ObservedGapRule` parameterizes exactly that definition
-(``window``, ``repeat_count``, ``threshold``), so if Paul and the
+(``window``, ``repeat_count``, ``threshold``), so if the operator and the
 independent framework reviewer approve different numbers by
 2027-01-10 (roadmap Q1 day 10), the engine adopts them without a code
 change. Until that approval is recorded, every rule payload carries
@@ -125,7 +125,7 @@ OUTCOMES_FILENAME = "outcomes.jsonl"
 # Human gate + tuning constants (all named, all documented)
 # ---------------------------------------------------------------------------
 
-#: Human gate. The roadmap requires Paul and the independent framework
+#: Human gate. The roadmap requires the operator and the independent framework
 #: reviewer to approve the observed-gap window/repeat_count/threshold by
 #: 2027-01-10 (roadmap Q1 2027, day 10 — Q1 is JANUARY–MARCH 2027). Until
 #: an explicit approval is recorded, every rule payload carries
@@ -162,7 +162,7 @@ class ObservedGapRule:
     Defaults encode the roadmap's baseline: the same disclosed rubric
     dimension below ``threshold`` in at least ``repeat_count`` of the
     last ``window`` completed sessions, or an explicit user selection
-    (handled separately by select_focus). Pending approval by Paul and
+    (handled separately by select_focus). Pending approval by the operator and
     the independent framework reviewer by 2027-01-10 (roadmap Q1 day
     10); until then the numbers below are the unapproved baseline (see
     ``pending_approval`` in every rule payload).
@@ -201,7 +201,7 @@ def _rule_payload(rule: ObservedGapRule) -> dict[str, Any]:
         "pending_approval": RULE_PENDING_APPROVAL,
         "approval_deadline": RULE_APPROVAL_DEADLINE,
         "approval_note": (
-            "Paul and the independent framework reviewer must approve "
+            "the operator and the independent framework reviewer must approve "
             "window/repeat_count/threshold by 2027-01-10 (roadmap Q1 "
             "2027, day 10). Until an approval is recorded, these numbers "
             "are the unapproved baseline."
@@ -554,7 +554,7 @@ def observed_gaps(
     the history file could not be loaded — an empty gap list then means
     "could not read your history", never a clean bill of health.
     The rule payload includes ``pending_approval`` (human gate:
-    approval by Paul + independent reviewer due 2027-01-10).
+    approval by the operator + independent reviewer due 2027-01-10).
     """
     rule = rule or DEFAULT_RULE
     history, history_ok, history_note = _resolve_history(history)
@@ -792,7 +792,7 @@ def recommend_next_drill(
     If the history file could not be loaded (``history_ok`` False), the
     output says so loudly and never reports a clean "no gaps".
     The rule payload includes ``pending_approval`` (human gate:
-    approval by Paul + independent reviewer due 2027-01-10).
+    approval by the operator + independent reviewer due 2027-01-10).
     """
     rule = rule or DEFAULT_RULE
     history, history_ok, history_note = _resolve_history(history)

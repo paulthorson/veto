@@ -228,7 +228,7 @@ fails loudly if any exist. This is a hard boundary, not a guideline.
 * Report: reports carry a fixed category and free-text detail; 2+
   distinct reporters mark an actor `pending_human_review` (hidden from
   discovery, pending handshakes withdrawn, audit entry written). There is
-  no auto-takedown: the real-party pilot human gate is Paul + an
+  no auto-takedown: the real-party pilot human gate is the operator + an
   independent reviewer, and only `clear_quarantine(..., reviewed_by=...)`
   lifts the hold. Reporter ids are caller-asserted in the local-first
   deployment (§2 trust boundary), so two reports are a tripwire for human
@@ -270,8 +270,8 @@ fails loudly if any exist. This is a hard boundary, not a guideline.
   demand exist. All empty-marketplace states are honest and guiding;
   activity is never faked.
 * **Human gates (not build gates):** the two-sided-consent + abuse-case
-  suite must pass Paul and the independent framework reviewer before any
-  pilot; Q2-day-10 pilot targets need Paul + contracted user researcher +
+  suite must pass the operator and the independent framework reviewer before any
+  pilot; Q2-day-10 pilot targets need the operator + contracted user researcher +
   independent reviewer approval. The code ships the suite; humans clear
   the gates.
 

@@ -38,7 +38,7 @@ stdin-only TTY check, and unchecked key-file permissions.
   (same-process reuse stays blocked), and does not raise into the
   transport caller — the cross-process replay window on a failed marker
   write there is the documented residual risk
-  (docs/i09/decisions/communication-connectors.md, routed to Paul).
+  (docs/i09/decisions/communication-connectors.md, routed to the operator).
   The module docstring "CLAIM (atomic)", `authorize_send`'s
   "ATOMIC CLAIM", and the round-3 MAJOR 4 entry now state the guarantee
   holds exactly when the marker write persists, and name the failure
@@ -256,11 +256,11 @@ requires a genuine interactive user approval before sending:
   `authorize_send`) covers every caller, including direct calls —
   closing the bypass the review demonstrated.
 
-**Residual question (for Paul — veto clearance).** Channel *enablement*
+**Residual question (for the operator — veto clearance).** Channel *enablement*
 is still a caller-asserted `confirm=True` + enumerated `via` source.
 A rogue enable alone can never cause a send (the send boundary is
 independent), but whether enablement itself should be interactive is
-undecided. The veto still needs Paul's explicit clearance after
+undecided. The veto still needs the operator's explicit clearance after
 re-review — disclosure does not clear it.
 
 **scope_driven:** true — shipping caller-asserted enablement NOW is
@@ -279,11 +279,11 @@ nothing without a genuine interactive send approval; the MCP surface
 for enablement is held unwired pending the veto (see
 `integration_notes.md` section 1d).
 
-**Human gate (formal).** Only Paul clears a veto (framework
-`overturn_verdict` is human-only). Action required from Paul: grant or
+**Human gate (formal).** Only the human clears a veto (framework
+`overturn_verdict` is human-only). Action required from the operator: grant or
 deny explicit clearance for (a) shipping interactive enablement as
 specified, or (b) accepting the residual caller-asserted enablement
-indefinitely. Routed to Paul — pending.
+indefinitely. Routed to the operator — pending.
 
 ## 2026-09-13 — Consent-store integrity and fail-loud writes (kept)
 

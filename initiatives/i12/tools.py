@@ -33,9 +33,9 @@ from typing import Any
 from . import contracts
 
 #: Public methodology URL. Honest placeholder: there is no public URL until
-#: Paul launches; the share module renders this verbatim into shared markdown,
+#: the operator launches; the share module renders this verbatim into shared markdown,
 #: so a relative repo path would be a dead link. Set at launch.
-METHODOLOGY_URL = "TBD \u2014 public methodology URL set by Paul at launch"
+METHODOLOGY_URL = "TBD \u2014 public methodology URL set by the operator at launch"
 LIMITATIONS_NOTE = (
     "Demo analysis runs entirely on your device. It is a screening aid, "
     "not career advice: it only sees the text you paste, knows nothing "

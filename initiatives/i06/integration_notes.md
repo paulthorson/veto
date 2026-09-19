@@ -159,7 +159,7 @@ be fiction. Routing to the human gate: the roadmap's Q1 exit gate
 names the adjacent metrics the gate could adopt — *successful task
 completion* and *time-to-review-ready work* (annual roadmap, candidate
 workbench row) and *weekly active studio/lab users* (Q1 exit gate,
-"Q1 day 10" record). The gate (Paul + independent framework
+"Q1 day 10" record). The gate (the operator + independent framework
 reviewer, deadline 2027-01-10) should pick one and set its direction;
 until then this document names no metric.
 
@@ -214,7 +214,7 @@ January–March 2027 (`Veto Annual Roadmap.txt`, portfolio map), and
 The recommendation engine ships with a PARAMETERIZED rule — no
 hardcoded weakness labels: `threshold=70`, `window=3`,
 `repeat_count=2`, and explicit user focus selection overrides
-everything. **Paul + an independent framework reviewer must approve
+everything. **The operator + an independent framework reviewer must approve
 the threshold/minimum by 2027-01-10.**
 
 Verified live in the code (`longitudinal.py:134`,
@@ -225,7 +225,7 @@ record exists — none exists yet): every recommendation payload ships
 "rule": {"threshold": 70, "window": 3, "repeat_count": 2,
          "description": "…", "pending_approval": true,
          "approval_deadline": "2027-01-10",
-         "approval_note": "Paul and the independent framework reviewer must approve window/repeat_count/threshold by 2027-01-10 (roadmap Q1 2027, day 10). Until an approval is recorded, these numbers are the unapproved baseline."}
+         "approval_note": "the operator and the independent framework reviewer must approve window/repeat_count/threshold by 2027-01-10 (roadmap Q1 2027, day 10). Until an approval is recorded, these numbers are the unapproved baseline."}
 ```
 
 Confirmed by running `skill-gaps recommend --window 3 --repeat 2

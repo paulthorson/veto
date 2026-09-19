@@ -83,7 +83,7 @@ points at it.
 VETO STATUS: this module was reworked under Rule 1 review case
 ``init-09-comms-rereview`` (KICK_BACK re-raised: self-mintable token +
 caller-asserted confirm + direct-call bypass). The rework implements the
-interactive send boundary described above. The veto still needs Paul's
+interactive send boundary described above. The veto still needs the operator's
 explicit clearance after re-review — disclosure does not clear it.
 See ``DECISIONS.md`` for the mechanism choice record.
 """
@@ -1181,7 +1181,7 @@ def enable_channel(
     A consent write that does not land is an enable FAILURE: the result
     reports ok False and the channel is not enabled.
 
-    NOTE (residual product question, for Paul): channel *enablement* is
+    NOTE (residual product question, for the operator): channel *enablement* is
     still a caller-asserted boolean + enumerated ``via`` source. The
     interactive send boundary below means a rogue enable alone can never
     cause a send, but whether enablement itself should be interactive is
@@ -2111,7 +2111,7 @@ def consume_approval(approval_id: str, *, channel: str = "gmail") -> None:
     This contract is pinned by the browser-apply unit's B1 test; the
     cross-process replay window on a failed marker write is the
     documented residual risk
-    (docs/i09/decisions/communication-connectors.md, routed to Paul). A
+    (docs/i09/decisions/communication-connectors.md, routed to the operator). A
     claim inside authorize_send instead FAILS the claim outright — see
     _consume_approval_locked.
     """
