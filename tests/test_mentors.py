@@ -206,7 +206,7 @@ class ConnectionDraftTests(_TempStore):
 
     def test_draft_under_300_chars_and_labeled(self):
         res = mentors.connection_draft(
-            self.ada_id, "Paul T",
+            self.ada_id, "Alex T",
             "land my first senior backend role at a fintech company",
         )
         self.assertTrue(res["ok"])
@@ -224,7 +224,7 @@ class ConnectionDraftTests(_TempStore):
             _profile(preferred_contact="linkedin_public")
         )["card"]["id"]
         res = mentors.connection_draft(
-            pub_id, "Paul T",
+            pub_id, "Alex T",
             "land my first senior backend role at a fintech company",
         )
         self.assertTrue(res["ok"])
@@ -233,10 +233,10 @@ class ConnectionDraftTests(_TempStore):
 
     def test_long_goal_gets_trimmed_not_dropped(self):
         goal = "get hired as a senior backend engineer at a well-funded fintech " * 20
-        res = mentors.connection_draft(self.ada_id, "Paul T", goal)
+        res = mentors.connection_draft(self.ada_id, "Alex T", goal)
         self.assertTrue(res["ok"])
         self.assertLessEqual(len(res["note"]), 300)
-        self.assertIn("Paul T", res["note"])
+        self.assertIn("Alex T", res["note"])
 
     def test_unknown_mentor(self):
         res = mentors.connection_draft("mentor-deadbeef0000", "P", "g")

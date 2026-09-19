@@ -147,7 +147,7 @@ class SafetyTest(unittest.TestCase):
         safety.report("bob", self.mentor_id, "spam")
         bad = safety.clear_quarantine(self.mentor_id, reviewed_by="")
         self.assertFalse(bad["ok"])
-        good = safety.clear_quarantine(self.mentor_id, reviewed_by="paul")
+        good = safety.clear_quarantine(self.mentor_id, reviewed_by="operator")
         self.assertTrue(good["ok"])
         self.assertFalse(safety.is_quarantined(self.mentor_id))
 
