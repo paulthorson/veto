@@ -796,7 +796,7 @@ def _take_screenshot(page: Any, suffix: str = "preview") -> Path | None:
         # Screenshots of filled forms contain PII (name/email/phone).
         # They are not encrypted (see docs/i09/decisions/
         # communication-connectors.md D2 for why not, and the residual
-        # risk routed to Paul) — but they are at least restricted to the
+        # risk routed to the operator) — but they are at least restricted to the
         # owner, and NIT 7 (round 6) the file was pre-created 0o600
         # BEFORE the screenshot bytes landed. This post-write chmod is
         # defense-in-depth (e.g. if the writer ever recreated the

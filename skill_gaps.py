@@ -447,7 +447,7 @@ def practice_observed_gaps(
         window: how many recent completed sessions to consider.
         repeat_count: minimum sessions below threshold to count.
         threshold: per-dimension "meets" score (0-100). The default
-            (70) is pending Paul + independent-framework-reviewer
+            (70) is pending the operator + independent-framework-reviewer
             approval per the roadmap Q1 gate; pass the approved value.
 
     Returns {"gaps", "rule", "sessions_considered", "sessions_total"}.
@@ -785,7 +785,7 @@ def register_tools(mcp: Any) -> None:
             window: recent completed sessions to consider.
             repeat_count: minimum sessions below threshold.
             threshold: per-dimension "meets" score (default 70,
-                pending Paul + reviewer approval per the Q1 gate).
+                pending the operator + reviewer approval per the Q1 gate).
         """
         return _impl_observe(window, repeat_count, threshold)
 

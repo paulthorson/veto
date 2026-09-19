@@ -857,7 +857,7 @@ def show_rubric() -> dict[str, Any]:
         "rubric": _i06_rubric.DISCLOSED_RUBRIC,
         "meets_threshold_default": _i06_rubric.MEETS_THRESHOLD,
         "threshold_note": (
-            "Default threshold; the final threshold is approved by Paul "
+            "Default threshold; the final threshold is approved by the operator "
             "and the independent framework reviewer (roadmap Q1 gate)."),
         "modes": {
             name: {

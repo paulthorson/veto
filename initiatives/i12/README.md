@@ -1,7 +1,7 @@
 # Initiative 12 — Public growth & education
 
 Build status (2026-09-13): machinery built and tested. **NOT public.** No launches,
-visibility changes, social posts, or marketing pushes happen without Paul's explicit order.
+visibility changes, social posts, or marketing pushes happen without the operator's explicit order.
 
 ## What this package is
 
@@ -27,8 +27,8 @@ onboarding experiments, and consent-based analytics with a hard privacy tripwire
 
 1. Every event is schema-allowlisted (unknown fields rejected) and content-scanned.
 2. Any content field → `TripwireTripped`: analytics shut off, offending payload plus live events persisted to the access-controlled quarantine (0600 files, never the word "sealed" — no encryption is implemented) and live copy deleted, incident filed.
-3. Re-enable requires, in order: clearing entry by a **named** contracted security/privacy specialist (name + reason ≥ 20 chars) → verification by the **independent framework reviewer** (must differ from the specialist) → no Paul veto.
-4. `paul_veto(reason)` blocks re-enable unconditionally. Only Paul clears a veto (human process).
+3. Re-enable requires, in order: clearing entry by a **named** contracted security/privacy specialist (name + reason ≥ 20 chars) → verification by the **independent framework reviewer** (must differ from the specialist) → no operator veto.
+4. `paul_veto(reason)` blocks re-enable unconditionally. Only the human clears a veto (human process).
 5. Reporting refuses vanity metrics: `applications_per_day` and friends raise — the roadmap guardrail is enforced in code.
 
 Prove it: `python -m pytest tests/test_i12_telemetry.py -x -q` — includes an
@@ -56,7 +56,7 @@ coordinator for craft-team coordination.
 
 ## Assumptions (flagged per build directive)
 
-- **A1 (re-cut evidence gate):** public-growth scope built without six months of outcome data, per Paul's directive.
+- **A1 (re-cut evidence gate):** public-growth scope built without six months of outcome data, per the operator's directive.
 - **A2:** built against assumed Initiative 04 decoder / Initiative 10 packaging interfaces via pinned contracts; adapters degrade honestly if they differ.
 - **A3:** public-tool usage converts to qualified activation, not vanity traffic — instrumented for the distinction from day one (`qualified_activation` metric; vanity metrics banned in code).
-- **ABSOLUTE:** no public launch without Paul's explicit order.
+- **ABSOLUTE:** no public launch without the operator's explicit order.

@@ -64,7 +64,7 @@ the Q3 exit gate.
 
 - **Q3 re-cut evidence gate:** this platform is built on the assumption
   that the extension-platform scope is correct without six months of
-  outcome data (Paul's directive). Flagged as assumption-built.
+  outcome data (the operator's directive). Flagged as assumption-built.
 - **09/10 contracts:** built on the assumption they land as described;
   both degradation rules above keep 11 shippable if they don't.
 - **Developer demand:** built on the assumption extension developers

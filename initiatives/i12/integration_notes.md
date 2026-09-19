@@ -4,7 +4,7 @@
 specs for the marketing-site surfaces the public tools need. Flagged to the
 program coordinator for craft-team coordination. Nothing here is approved for
 implementation until the craft team schedules it — and nothing goes public
-without Paul's explicit order.**
+without the operator's explicit order.**
 
 All specs assume the page renders output from `initiatives.i12` (JSON dicts),
 never invents copy, and links methodology at `docs/i12/methodology.md`.

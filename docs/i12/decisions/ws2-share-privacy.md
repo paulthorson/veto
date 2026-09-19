@@ -52,8 +52,8 @@ Nothing here invents users, incidents, or launch dates.
 
 The scanner's docstring claimed "names" were covered, but the person-name
 value check applied only to the exact field `name`: `{"candidate_name":
-"Paul Thorson"}`, `{"hiring_manager": "Paul Thorson"}`, `{"username":
-"Paul Thorson"}` and the like all passed clean — the `\bname\b`
+"Alex Rivera"}`, `{"hiring_manager": "Alex Rivera"}`, `{"username":
+"Alex Rivera"}` and the like all passed clean — the `\bname\b`
 forbidden-name pattern never matches underscored compounds, and nothing
 checked the values.
 
@@ -80,7 +80,7 @@ checked the values.
     positive: pinned schema fields are known metadata labels by
     construction, so exempting them costs no true-positive coverage.
     Rationale for keeping the C2 `name` exception instead of scoping the
-    whole check to non-SAFE fields: the `{"name": "Paul Thorson"}` case is
+    whole check to non-SAFE fields: the `{"name": "Alex Rivera"}` case is
     the highest-risk shape (it is a real builder field) and must keep
     firing.
 - `schedule_driven`: false. `ops_goal`: "person-name values passing the
@@ -111,12 +111,12 @@ passed the scanner when they contained no marker words.
 
 ## D4: methodology link (C6) — honest TBD placeholder
 
-- **Chosen: `METHODOLOGY_URL = "TBD — public methodology URL set by Paul
+- **Chosen: `METHODOLOGY_URL = "TBD — public methodology URL set by the operator
   at launch"`, rendered verbatim into shared markdown.**
   - Trades away a clickable link in pre-launch shares to get honesty: a
     relative repo path ("docs/i12/methodology.md") is meaningless once the
     markdown leaves this machine, and inventing a real-looking URL would
-    be fabrication. Paul sets the real URL at launch; the placeholder
+    be fabrication. The operator sets the real URL at launch; the placeholder
     cannot be mistaken for a live link. (Note: `initiatives/i12/tools.py`
     has its own `METHODOLOGY_LINK` with the same relative path — out of
     WS2 scope, flagged for its owner.)

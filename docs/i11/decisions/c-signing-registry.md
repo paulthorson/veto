@@ -3,7 +3,7 @@
 Run ID: 2026-09-13-c-signing-registry-fixer
 Lane: Develop & Deliver
 Started: 2026-09-13
-Human arbiter: Paul Thorson
+Human arbiter: anonymous operator
 
 **This file is append-only.** Nothing above a committed line is edited. A correction is a new
 entry that references the entry it corrects.
@@ -163,7 +163,7 @@ four-gate model or the local-first JSON stores.
 - **Over.**
   - Free-string revoked_by (status quo): trades away all authorization to get a one-line
     API — rejected; anyone could revoke anything, this was a MAJOR.
-  - Human-authority-only path (Paul clears): trades away publisher self-service (a
+  - Human-authority-only path (the operator clears): trades away publisher self-service (a
     publisher who discovers their own compromise must wait for a human) to get simpler
     authorization — considered; the publisher-key path was chosen because the publisher is
     usually first to know of compromise, and the pinned key already exists as the trust
@@ -275,10 +275,10 @@ outside the fixer's directories and is flagged rather than touched.
 ## 8. Gate
 
 Gate: n/a (fixer pass; commit sweep is the later human-gated step).
-Routed because: scheduled gate — the later sweep commits, and only Paul clears.
+Routed because: scheduled gate — the later sweep commits, and only the human clears.
 
 ### Human decision
-- Arbiter: Paul Thorson
+- Arbiter: anonymous operator
 - Date: pending (commit sweep)
 - Decision: pending
 - Reason: —
