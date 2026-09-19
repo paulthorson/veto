@@ -351,6 +351,10 @@ outbound connections — key generation is purely local.
 
 ## 7. Gmail OAuth scopes — UNKNOWN (external configuration)
 
+Gmail grill and email sync depend on `hatch_gws_cli`, an external CLI
+that is not publicly distributed; on a clean public install those
+features report the CLI as missing and do not run.
+
 **No OAuth scope strings exist anywhere in the Veto repo.** All Gmail access
 goes through the external Gmail skill's CLI (`email_sync.py:27-28`):
 

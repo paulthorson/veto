@@ -60,8 +60,14 @@ a paired Android with send capability — so WhatsApp is the real option.
 
 ### Gmail
 
-`grill_channel: "gmail"` sends the questions as an email to your own
-address (from the saved profile) with subject:
+Gmail grill is not available on a clean install without an external CLI
+(`hatch_gws_cli`) that is not publicly distributed. Without that CLI on
+`PATH`, the Gmail grill channel cannot send or watch mail; use `chat` or
+`whatsapp` instead.
+
+When `hatch_gws_cli` *is* available, `grill_channel: "gmail"` sends the
+questions as an email to your own address (from the saved profile) with
+subject:
 
 ```
 Grill: <title> at <company> — N questions before I tailor your application [grill:<session_id>]
