@@ -58,10 +58,10 @@ iMessage cannot be auto-sent (paired iPhones only expose a draft that
 still needs you to hit send), Discord has no integration, and SMS needs
 a paired Android with send capability — so WhatsApp is the real option.
 
-### Gmail — HOLD
+### Gmail
 
-**HOLD for public installs.** Outbound Gmail depends on external
-`hatch_gws_cli`, which is not publicly distributed. Without that CLI on
+Gmail grill is not available on a clean install without an external CLI
+(`hatch_gws_cli`) that is not publicly distributed. Without that CLI on
 `PATH`, the Gmail grill channel cannot send or watch mail; use `chat` or
 `whatsapp` instead.
 
