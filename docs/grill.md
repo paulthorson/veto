@@ -58,10 +58,16 @@ iMessage cannot be auto-sent (paired iPhones only expose a draft that
 still needs you to hit send), Discord has no integration, and SMS needs
 a paired Android with send capability — so WhatsApp is the real option.
 
-### Gmail
+### Gmail — HOLD
 
-`grill_channel: "gmail"` sends the questions as an email to your own
-address (from the saved profile) with subject:
+**HOLD for public installs.** Outbound Gmail depends on external
+`hatch_gws_cli`, which is not publicly distributed. Without that CLI on
+`PATH`, the Gmail grill channel cannot send or watch mail; use `chat` or
+`whatsapp` instead.
+
+When `hatch_gws_cli` *is* available, `grill_channel: "gmail"` sends the
+questions as an email to your own address (from the saved profile) with
+subject:
 
 ```
 Grill: <title> at <company> — N questions before I tailor your application [grill:<session_id>]

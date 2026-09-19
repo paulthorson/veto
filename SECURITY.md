@@ -5,7 +5,7 @@
 If you find a security problem in Veto, please report it privately
 rather than opening a public issue.
 
-**Contact:** security@agenticgovernance.app
+**Contact:** hello@vetomcp.com
 
 Please include: what you found, the version or commit you were on,
 and steps to reproduce. Don't publish exploit details until there
