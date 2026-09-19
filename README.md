@@ -540,9 +540,6 @@ To build locally:
 docker build -t veto .
 ```
 
-Dependency updates (pip, Docker base image, GitHub Actions) are handled
-weekly by Dependabot (`.github/dependabot.yml`).
-
 ## Lifecycle & monitoring
 
 ### Application stages
