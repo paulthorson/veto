@@ -21,7 +21,7 @@ Dimensions (weights sum to 1.0):
 
 ``MEETS_THRESHOLD`` (default 70) is the per-dimension bar used by the
 longitudinal observed-gap rule. It is a *parameter*, not a fact: the
-roadmap requires Paul + the independent framework reviewer to approve
+roadmap requires the operator + the independent framework reviewer to approve
 the final threshold by Q1 day 10, and the engine must accept whatever
 they approve. See ``initiatives.i06.longitudinal.ObservedGapRule``.
 
@@ -44,7 +44,7 @@ from typing import Any
 DIMENSIONS = ("structure", "evidence", "clarity", "trade_offs",
               "question_quality")
 
-#: Pending-approval default. The roadmap's Q1 gate requires Paul and the
+#: Pending-approval default. The roadmap's Q1 gate requires the operator and the
 #: independent framework reviewer to approve the final threshold by Q1 day
 #: 10; the longitudinal engine takes whatever threshold they approve, so
 #: this value is a default, not a locked fact.
@@ -666,7 +666,7 @@ def meets_threshold(score: int | None,
     False, so unscored dimensions can't manufacture a gap.
 
     The default is resolved from ``MEETS_THRESHOLD`` at call time,
-    not bound at def-time: the roadmap's Q1 gate lets Paul and the
+    not bound at def-time: the roadmap's Q1 gate lets the operator and the
     independent framework reviewer approve a new threshold value, and
     that approval must take effect without re-importing this module.
     """
@@ -687,7 +687,7 @@ def rubric_card() -> str:
         "hidden factors.",
         "",
         f"Default 'meets' threshold: **{MEETS_THRESHOLD}/100** per "
-        "dimension. The final threshold is approved by Paul and the "
+        "dimension. The final threshold is approved by the operator and the "
         "independent framework reviewer (roadmap Q1 gate); the engine "
         "accepts whatever they approve.",
         "",

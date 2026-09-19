@@ -5,7 +5,7 @@ Bundles resume, cover letter, grill answers, fit rationale, and a
 review checklist for one role. Build-only: this module assembles and
 reviews the packet. It NEVER submits applications — there is
 deliberately no submit path here or anywhere in the studio, and a test
-asserts that. Submissions need Paul's explicit per-application
+asserts that. Submissions need the operator's explicit per-application
 confirmation through the governed apply flow.
 """
 

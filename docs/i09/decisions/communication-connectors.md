@@ -37,7 +37,7 @@ holding the bytes can impersonate the sessions) protected ONLY by
   disk disposal, accidental file shares), not against local privilege.
 
 - **Chosen: harden what can be hardened safely; record the rest as
-  explicit residual risk for Paul (human gate).**
+  explicit residual risk for the operator (human gate).**
   - What ships: 0o600 on the session file (loud failure, not silent);
     on hardening failure the captured file is DELETED (m4 — never left
     at umask permissions with a "delete it manually" note); disclosure
@@ -48,7 +48,7 @@ holding the bytes can impersonate the sessions) protected ONLY by
     temp-file decrypt window could easily be WORSE than honest 0o600
     (e.g. plaintext temp files left behind after crashes). The residual
     risk is not silently downgraded: it is recorded below and routed to
-    Paul, the only one who can accept it.
+    the operator, the only one who can accept it.
 - **Surviving option B: Fernet-encrypt storage_state with a
   locally-generated 0o600 key (the consent-key pattern).**
   - Trades away dependency minimalism and implementation simplicity —
@@ -56,7 +56,7 @@ holding the bytes can impersonate the sessions) protected ONLY by
     plumbing with guaranteed deletion around every
     `browser.new_context(storage_state=...)` call — to get genuine
     at-rest encryption: stolen ciphertext without the key file is
-    useless. Survives as the recommended direction if Paul accepts the
+    useless. Survives as the recommended direction if the operator accepts the
     residual risk below only conditionally, or when a dependency review
     can bless the new crypto surface properly.
 - **Surviving option C: OS keyring / platform credential store for the
@@ -81,7 +81,7 @@ phone, address). Rule 4 requires encryption at rest; screenshots are
 not encrypted.
 
 - **Chosen: 0o600 on capture + retention caps, no encryption, residual
-  risk recorded for Paul.**
+  risk recorded for the operator.**
   - What ships: every screenshot is chmodded 0o600 immediately after
     capture; on hardening failure the file is DELETED (fallback chmod
     0), loudly reported as an error — never left at umask permissions
@@ -103,7 +103,7 @@ not encrypted.
   - Trades away implementation effort and review friction (a new
     decrypt path that must itself protect the plaintext window) to get
     encrypted screenshots that remain viewable through a first-party
-    command. Survives if Paul judges the residual risk below
+    command. Survives if the operator judges the residual risk below
     unacceptable — it is the natural companion to option B in D1
     (same key, same threat model).
 - **Surviving option C: no screenshots at all (text-only form dump).**
@@ -116,7 +116,7 @@ not encrypted.
 - `ops_goal`: "screenshot files on disk with permissions broader than
   0o600, or older than the retention cap — zero (test-pinned)."
 
-## Residual risks — routed to Paul (human risk-acceptance gate)
+## Residual risks — routed to the operator (human risk-acceptance gate)
 
 The blind reviewer was explicit: only a human can accept these. They
 are recorded here, not silently downgraded:
@@ -142,7 +142,7 @@ are recorded here, not silently downgraded:
    ERROR-logged, never silent. Full B1 proof awaits the registry
    rework.
 
-Paul: accepting (1) and (2) as-is, or directing option B in D1/D2, is
+Operator: accepting (1) and (2) as-is, or directing option B in D1/D2, is
 your call. This record stands as the disclosure either way.
 
 4. **A hostile page can label a button "Reject all" while its click
@@ -171,7 +171,7 @@ your call. This record stands as the disclosure either way.
 Fresh blind security review of the round-3 rework KICK_BACKed on six
 findings. B1 (cross-process replay), M1 (final-URL binding), M2 (rescue
 before consume), and all round-1 items were verified FIXED and were not
-regressed. M4 (Rule-4 encryption-at-rest residual) stays routed to Paul
+regressed. M4 (Rule-4 encryption-at-rest residual) stays routed to the operator
 — untouched here.
 
 - **R4-N1: M3 binds the RAW bytes, not the sanitized display text.**
@@ -216,7 +216,7 @@ regressed. M4 (Rule-4 encryption-at-rest residual) stays routed to Paul
 
 Fresh blind security review of the round-4 rework KICK_BACKed on five
 findings. N1–N4 and N6 were verified FIXED and were not regressed. M4
-(Rule-4 encryption-at-rest residual) stays routed to Paul — untouched
+(Rule-4 encryption-at-rest residual) stays routed to the operator — untouched
 here.
 
 - **R5-S1 (MAJOR): M3 select re-verification is exact on the transmitted
@@ -376,7 +376,7 @@ this round's regression run (no regressions).
 - **M4 (encryption-at-rest) residual: untouched.** As routed: file
   permissions (now owner-only from creation) remain the only
   protection for screenshots, session files, and approval previews —
-  none are encrypted. Unimplemented by this unit; routed to Paul.
+  none are encrypted. Unimplemented by this unit; routed to the operator.
 
 - `schedule_driven`: false — correctness-driven blind-review rework.
 - `ops_goal`: "blind-review MAJOR findings open — zero; no main-world
@@ -448,7 +448,7 @@ Round-6 MINORs were re-verified as part of this round's regression run
 - **M4 (encryption-at-rest) residual: untouched.** As routed: file
   permissions remain the only protection for screenshots, session
   files, and approval previews — none are encrypted. Unimplemented by
-  this unit; routed to Paul.
+  this unit; routed to the operator.
 
 ### Corrections to prior round notes (2026-09-14)
 
@@ -473,7 +473,7 @@ Round-6 MINORs were re-verified as part of this round's regression run
 Round-8 review raised two findings against the round-7 rework (F1, F2)
 and one accepted residual (F3). Reviewer-verified findings B–E were
 re-checked and not regressed; the M4 encryption-at-rest residual
-remains routed to Paul, untouched.
+remains routed to the operator, untouched.
 
 - **F1: the click targets the isolated-world-resolved node itself —
   the main-world locator is discovery-only.** The round-7 note
@@ -506,7 +506,7 @@ remains routed to Paul, untouched.
   probe yielded `None`. It now returns `None`, and the submit flow
   refuses before any approval is presented — no prompt, no click, no
   approval minted.
-- **F3 (ACCEPTED RESIDUAL, routed to Paul): hostile consent-banner
+- **F3 (ACCEPTED RESIDUAL, routed to the operator): hostile consent-banner
   labeling.** A hostile page can label a button "Reject all" while its
   click handler actually opts into tracking. No code fix is offered —
   handler semantics are not verifiable from the DOM, so this is
@@ -515,7 +515,7 @@ remains routed to Paul, untouched.
   causes no dismissal and the run continues safely; the consent click
   transmits no applicant PII. Recorded as residual item 4 above with
   genuine options (accept as-is / never auto-dismiss / known-ID
-  allowlist only) for Paul's human acceptance decision.
+  allowlist only) for the operator's human acceptance decision.
 
 ### Corrections to prior round notes (2026-09-14)
 
@@ -644,7 +644,7 @@ is automated under node.
 
 ### Unchanged routing
 
-- M4 (Rule-4 encryption-at-rest residual) remains routed to Paul and
+- M4 (Rule-4 encryption-at-rest residual) remains routed to the operator and
   is untouched by this round.
 - D1/D2 encryption decisions are unchanged.
 

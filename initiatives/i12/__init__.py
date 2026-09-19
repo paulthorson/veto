@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Initiative 12 — Public growth & education (Veto annual roadmap, Q3 2027 scope).
 
-Built early (2026-09-13) per Paul's directive: the machinery is built and
-tested now; NOTHING in this package goes public without Paul's explicit order.
+Built early (2026-09-13) per the operator's directive: the machinery is built and
+tested now; NOTHING in this package goes public without the operator's explicit order.
 
 Submodules:
 
@@ -23,7 +23,7 @@ Submodules:
   Q3 exit-gate tripwire: any content field in a telemetry payload or public
   artifact shuts analytics off, quarantines data, and requires a named
   contracted security/privacy specialist's clearing entry plus independent
-  framework-reviewer verification before re-enable. Paul retains veto.
+  framework-reviewer verification before re-enable. The operator retains veto.
 
 CLI entry: ``python -m initiatives.i12 <subcommand>``.
 
@@ -40,7 +40,7 @@ from __future__ import annotations
 
 __version__ = "0.1.0"
 __roadmap_initiative__ = "12"
-__status__ = "built-pending-review"  # NOT public; Paul must order any launch.
+__status__ = "built-pending-review"  # NOT public; the operator must order any launch.
 
 __all__ = [
     "contracts",
