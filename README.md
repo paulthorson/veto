@@ -212,10 +212,8 @@ python3 -m venv .venv
 
 ## Web site
 
-The marketing site lives in
-[`paulthorson/veto-mcp`](https://github.com/paulthorson/veto-mcp)
-([https://www.vetomcp.com](https://www.vetomcp.com)). This product repo
-does not ship the `site/` tree.
+Product marketing lives at [https://www.vetomcp.com](https://www.vetomcp.com).
+This product repo does not ship the marketing site source tree.
 
 ## Run
 
