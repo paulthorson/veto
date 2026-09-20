@@ -237,9 +237,7 @@ webhook. No resume text, no credentials.
 ## 5. Site (marketing/docs site) — mixed
 
 The marketing site lives in
-[`paulthorson/veto-mcp`](https://github.com/paulthorson/veto-mcp)
-([https://www.vetomcp.com](https://www.vetomcp.com)); path citations below
-(`site/…`) refer to that repo. Built with `npm run build` (vite; succeeded —
+[https://www.vetomcp.com](https://www.vetomcp.com). Path citations below (`site/…`) refer to the marketing site source (private; not this product repo). Built with `npm run build` (vite; succeeded —
 no `file:../../veto-design-system` dependency remains in `site/package.json`).
 Served `site/dist` over local HTTP.
 
@@ -411,7 +409,7 @@ to contact) that is not purely documentary. Role notes whether it is a
   destination.
 - `site/dist/index.html` — canonical/og URLs
   `https://www.vetomcp.com/` (metadata only; marketing site in
-  `paulthorson/veto-mcp`). (Google Fonts were the site's only third-party
+  the private marketing site repo). (Google Fonts were the site's only third-party
   requests until 2026-09-14; the two families are now self-hosted woff2 —
   §5.)
 - `initiatives/i11/policy_kit/*` and `reference/apply-pilot/extension.py`
