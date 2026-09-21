@@ -849,4 +849,4 @@ rework ALLOWs before counting an initiative at 100%.
 
 ## 2026-09-14 — Terms of Use review (REDACTED)
 
-- **Redacted:** Draft Terms analysis, clause-level review narrative, and residual-risk notes removed from this public ledger. No Terms text is published in this repository.
+- **Redacted:** Prior analysis and residual-risk notes removed from this public ledger. No policy text is published in this repository.
