@@ -24,9 +24,9 @@ replacement commits):
 - Commit 11: site build fix (spec §8.2)
 - Commit 12: test contract (spec §11)
 
-The git history rewrite called for by the spec's final instruction is already
-done: impersonating UA strings were purged from all history and appear in the
-tree only as `VETO-REDACTED-UA` markers (not violations).
+User-agent strings in this repository are the honest `veto/<version>`
+constant or `VETO-REDACTED-UA` markers. No browser-impersonation tokens
+are present in the current tree.
 
 ---
 
@@ -337,9 +337,8 @@ after landing.)
   starts logged-out; on boards that require login to view or submit an
   application form, the user logs in by hand in the headed browser each time,
   or the flow cannot proceed. Pre-existing `sessions/*.json` files stop
-  working with a message telling the user to delete them. Convenience that
-  looked like "remember me" was actually Veto operating an authenticated
-  session on ToS-restricted platforms; it is gone.
+  working with a message telling the user to delete them. The saved-session
+  convenience is gone.
 - **AutomationControlled flag removed.** Replacement: none. Cost: some apply
   flows that refuse to serve automation-flagged browsers may stop loading
   pages for the fill step. If that happens, the user completes those
@@ -371,9 +370,9 @@ is inside the module docstring). The real machinery: `BOARD_LOGIN_URLS`
 and the violation is the mechanism, not the URLs: `login_session` (:1204-1340)
 saves Playwright `storage_state` (bearer-equivalent cookies/localStorage) to
 `sessions/{board}.json` (:1294), and `apply_via_browser` auto-reloads any
-saved session into every run (:3818-3842). Veto *operates an authenticated
-session* on ToS-restricted platforms whenever a session file exists — exactly
-what §1 lens (b) forbids — regardless of who typed the password. Deleting the
+saved session into every run (:3818-3842). That deleted path loaded a
+saved browser session on those boards whenever a session file existed —
+exactly what §1 lens (b) forbids — regardless of who typed the password. Deleting the
 login URLs alone would leave the replay path and pre-existing
 `sessions/*.json` files live. So commit 4 deletes: all four login URLs, the
 `login_session` save path, `session_path`/`has_saved_session` (:266-275), and
@@ -469,9 +468,9 @@ as a mitigator — driving a logged-in session is "categorically worse than
 fetching public data." Narrower alternative: keep unauthenticated public-data
 fetches only, with the honest UA and full request hygiene, and zero
 authenticated sessions. That eliminates lens (b) entirely. Honest counter:
-§1(a) as written covers this ("the author has shipped a tool built for that
-purpose"); LinkedIn's terms restrict automated access, period, not just
-authenticated access — deletion may be required by the letter of §1(a). Cost
+§1(a) as written covers automated board access, not just authenticated
+access; LinkedIn's terms restrict automated access, period —
+deletion may be required by the letter of §1(a). Cost
 of the spec's version: the largest UX cost in the program, stated in §10.4 —
 LinkedIn is the dominant board and its deletion demotes Veto from "find jobs
 for me" to "process jobs you found."
